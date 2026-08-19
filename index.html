@@ -107,11 +107,13 @@
             border-bottom: 2px solid #E85A24;
         }
 
+        /* Drag and Drop Zone Hover State */
         .dropzone-active {
             border-color: #E85A24 !important;
             background-color: #FFF4EF !important;
         }
 
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -153,6 +155,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
+                <!-- BRAND LOGO -->
                 <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-amber-600 flex items-center justify-center text-white font-extrabold text-xl shadow-md group-hover:scale-105 transition-transform">
                         P
@@ -165,6 +168,7 @@
                     </div>
                 </a>
 
+                <!-- DESKTOP NAV LINKS -->
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
                     <a href="#home" onclick="navigateTo('home')" id="nav-home" class="hover:text-brand-orange transition-colors py-2 active-nav" data-i18n="nav-home">Home</a>
                     <a href="#employers" onclick="navigateTo('employers')" id="nav-employers" class="hover:text-brand-orange transition-colors py-2" data-i18n="nav-employers">For Employers</a>
@@ -175,6 +179,7 @@
                     <a href="#about" onclick="navigateTo('about')" id="nav-about" class="hover:text-brand-orange transition-colors py-2" data-i18n="nav-about">About Us</a>
                 </nav>
 
+                <!-- HEADER CTA BUTTONS -->
                 <div class="hidden sm:flex items-center gap-3">
                     <a href="#jobs" onclick="navigateTo('jobs')" class="text-xs font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-lg transition-colors border border-slate-700 hover:border-slate-500" data-i18n="nav-candidate-cta">
                         Candidate Portal
@@ -185,6 +190,7 @@
                     </a>
                 </div>
 
+                <!-- MOBILE MENU BUTTON -->
                 <div class="lg:hidden flex items-center gap-2">
                     <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white p-2 rounded-lg border border-slate-800 focus:outline-none">
                         <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
@@ -193,6 +199,7 @@
             </div>
         </div>
 
+        <!-- MOBILE MENU DROPDOWN -->
         <div id="mobile-menu" class="hidden lg:hidden bg-brand-navy border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
             <a href="#home" onclick="navigateTo('home'); toggleMobileMenu();" class="block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="nav-home">Home</a>
             <a href="#request-talent" onclick="navigateTo('request-talent'); toggleMobileMenu();" class="block py-2 text-brand-orange font-bold text-base" data-i18n="nav-primary-cta">REQUEST TALENT</a>
@@ -213,12 +220,17 @@
 
     <main id="app-container" class="flex-grow">
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 1: HOMEPAGE (#home) -->
+        <!-- ==================================================================== -->
         <section id="view-home" class="page-view">
             
+            <!-- HERO SECTION WITH RICH BACKDROP IMAGE & GRAPHICS -->
             <div class="hero-bg-overlay border-b border-slate-800 py-20 md:py-28 relative overflow-hidden text-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         
+                        <!-- HERO LEFT COLUMN -->
                         <div class="lg:col-span-7 space-y-6">
                             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-brand-orange text-xs font-bold tracking-wide backdrop-blur-md">
                                 <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
@@ -233,6 +245,7 @@
                                 We help companies across the United States recruit specialized engineering, semiconductor equipment, field service, manufacturing, IT, executive, and Korean-English bilingual talent.
                             </p>
 
+                            <!-- HERO CTAS -->
                             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                                 <a href="#request-talent" onclick="navigateTo('request-talent')" class="bg-brand-orange hover:bg-brand-orange-hover text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl hover:shadow-orange-500/30 transition-all text-center flex items-center justify-center gap-3">
                                     <span data-i18n="cta-request-talent">REQUEST TALENT</span>
@@ -243,6 +256,7 @@
                                 </a>
                             </div>
 
+                            <!-- HERO TRUST METRICS -->
                             <div class="pt-8 border-t border-slate-700/80 grid grid-cols-3 gap-4 text-left">
                                 <div>
                                     <p class="text-xs text-slate-400 uppercase font-bold tracking-wider" data-i18n="metric-1-title">SPECIALTY FOCUS</p>
@@ -268,6 +282,7 @@
                             </div>
                         </div>
 
+                        <!-- HERO RIGHT COLUMN -->
                         <div class="lg:col-span-5 relative">
                             <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl border border-slate-200 text-brand-navy relative z-10">
                                 <div class="absolute -top-3 -right-3 bg-brand-orange text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
@@ -349,7 +364,7 @@
                             Critical Position Open Too Long?
                         </h2>
                         <p class="text-base text-brand-muted mt-4" data-i18n="pain-desc">
-                            When key roles remain vacant in high-stakes technical environments, operations slow, revenue stalls, and existing teams burn out.
+                            When key roles remain vacant in high-stakes technical environments, operations slow, revenue stalls, and existing teams burn out. Standard job postings rarely reach passive, specialized candidates.
                         </p>
                     </div>
 
@@ -427,32 +442,313 @@
                 </div>
             </section>
 
+            <section class="py-20 bg-slate-100 border-y border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                        <div>
+                            <span class="text-brand-orange font-bold text-xs uppercase tracking-widest" data-i18n="spec-tag">CORE AREAS OF PRACTICE</span>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2" data-i18n="spec-title">Specialized Recruiting Practices</h2>
+                        </div>
+                        <a href="#expertise" onclick="navigateTo('expertise')" class="mt-4 md:mt-0 text-sm font-bold text-brand-orange hover:text-brand-orange-hover flex items-center gap-2">
+                            <span>Explore All Disciplines</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
+                            <div class="h-40 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Semiconductor';" alt="Semiconductor Equipment" class="w-full h-full object-cover img-zoom">
+                                <div class="absolute inset-0 image-card-overlay p-4 flex items-start justify-between">
+                                    <span class="px-2.5 py-1 rounded bg-brand-orange text-white text-[10px] font-extrabold uppercase">High-Tech Practice</span>
+                                    <i class="fa-solid fa-microchip text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2" data-i18n="p1-title">Semiconductor & Equipment</h3>
+                                    <p class="text-xs text-brand-muted mb-4 leading-relaxed" data-i18n="p1-desc">
+                                        Specialized recruiting for engineering, equipment installation, cleanroom operations, maintenance, and field-service roles supporting U.S. fab facilities.
+                                    </p>
+                                    <ul class="text-xs text-brand-slate space-y-1.5 mb-6 font-medium">
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-[10px]"></i> Field Service Engineers (FSE)</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-[10px]"></i> Equipment & Process Engineers</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange text-[10px]"></i> Fab Facilities & Cleanroom Operations</li>
+                                    </ul>
+                                </div>
+                                <a href="#semiconductor" onclick="navigateTo('semiconductor')" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange flex items-center gap-1 transition-colors">
+                                    <span>Learn More</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
+                            <div class="h-40 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=EV+Battery+Manufacturing';" alt="EV Battery Plant" class="w-full h-full object-cover img-zoom">
+                                <div class="absolute inset-0 image-card-overlay p-4 flex items-start justify-between">
+                                    <span class="px-2.5 py-1 rounded bg-blue-600 text-white text-[10px] font-extrabold uppercase">Gigafactory & OEM</span>
+                                    <i class="fa-solid fa-car-battery text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2" data-i18n="p2-title">Automotive & EV Battery</h3>
+                                    <p class="text-xs text-brand-muted mb-4 leading-relaxed" data-i18n="p2-desc">
+                                        Sourcing technical and leadership talent for battery cell manufacturing, gigafactories, and Tier-1 automotive component suppliers across the Southeast and Nationwide.
+                                    </p>
+                                    <ul class="text-xs text-brand-slate space-y-1.5 mb-6 font-medium">
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-600 text-[10px]"></i> Battery Cell & Module Engineers</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-600 text-[10px]"></i> Automated Assembly Technicians</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-600 text-[10px]"></i> Quality & Supply Chain Directors</li>
+                                    </ul>
+                                </div>
+                                <a href="#request-talent" onclick="navigateTo('request-talent')" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange flex items-center gap-1 transition-colors">
+                                    <span>Discuss EV Hiring Need</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
+                            <div class="h-40 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Manufacturing+Engineering';" alt="Engineering Plant Operations" class="w-full h-full object-cover img-zoom">
+                                <div class="absolute inset-0 image-card-overlay p-4 flex items-start justify-between">
+                                    <span class="px-2.5 py-1 rounded bg-emerald-600 text-white text-[10px] font-extrabold uppercase">Industrial Operations</span>
+                                    <i class="fa-solid fa-industry text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2" data-i18n="p3-title">Engineering & Manufacturing</h3>
+                                    <p class="text-xs text-brand-muted mb-4 leading-relaxed" data-i18n="p3-desc">
+                                        Recruiting mechanical, electrical, maintenance, production, and plant operations leadership for demanding industrial manufacturing operations.
+                                    </p>
+                                    <ul class="text-xs text-brand-slate space-y-1.5 mb-6 font-medium">
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-[10px]"></i> Plant Managers & Operations Leads</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-[10px]"></i> Maintenance & EH&S Managers</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-[10px]"></i> Process & Automation Engineers</li>
+                                    </ul>
+                                </div>
+                                <a href="#request-talent" onclick="navigateTo('request-talent')" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange flex items-center gap-1 transition-colors">
+                                    <span>Request Engineering Talent</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
+                            <div class="h-40 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Bilingual+Network';" alt="Global Network Connection" class="w-full h-full object-cover img-zoom">
+                                <div class="absolute inset-0 image-card-overlay p-4 flex items-start justify-between">
+                                    <span class="px-2.5 py-1 rounded bg-purple-600 text-white text-[10px] font-extrabold uppercase">HQ & Subsidiary</span>
+                                    <i class="fa-solid fa-language text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2" data-i18n="p4-title">Korean-English Bilingual</h3>
+                                    <p class="text-xs text-brand-muted mb-4 leading-relaxed" data-i18n="p4-desc">
+                                        Specialized capability sourcing bilingual professionals capable of bridging technical, operational, and managerial needs between U.S. subsidiaries and international HQs.
+                                    </p>
+                                    <ul class="text-xs text-brand-slate space-y-1.5 mb-6 font-medium">
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-600 text-[10px]"></i> Executive & HQ Liaison Roles</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-600 text-[10px]"></i> Bilingual Technical Engineers</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-600 text-[10px]"></i> HR, Legal & Finance Leadership</li>
+                                    </ul>
+                                </div>
+                                <a href="#bilingual" onclick="navigateTo('bilingual')" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange flex items-center gap-1 transition-colors">
+                                    <span>Bilingual Overview</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
+                            <div class="h-40 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Cloud+Security+Infrastructure';" alt="Server Network Data Center" class="w-full h-full object-cover img-zoom">
+                                <div class="absolute inset-0 image-card-overlay p-4 flex items-start justify-between">
+                                    <span class="px-2.5 py-1 rounded bg-cyan-600 text-white text-[10px] font-extrabold uppercase">Enterprise Tech</span>
+                                    <i class="fa-solid fa-server text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2" data-i18n="p5-title">IT, Cloud & Technology</h3>
+                                    <p class="text-xs text-brand-muted mb-4 leading-relaxed" data-i18n="p5-desc">
+                                        Placing software engineers, cloud architects, data specialists, and IT infrastructure professionals into corporate and manufacturing technology teams.
+                                    </p>
+                                    <ul class="text-xs text-brand-slate space-y-1.5 mb-6 font-medium">
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-600 text-[10px]"></i> Enterprise Cloud Architects</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-600 text-[10px]"></i> MES & Industrial IT Specialists</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-600 text-[10px]"></i> Cybersecurity & Infrastructure Leads</li>
+                                    </ul>
+                                </div>
+                                <a href="#request-talent" onclick="navigateTo('request-talent')" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange flex items-center gap-1 transition-colors">
+                                    <span>Request IT Talent</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
+                            <div class="h-40 overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Executive+Corporate+Office';" alt="Corporate Executive Boardroom" class="w-full h-full object-cover img-zoom">
+                                <div class="absolute inset-0 image-card-overlay p-4 flex items-start justify-between">
+                                    <span class="px-2.5 py-1 rounded bg-amber-600 text-white text-[10px] font-extrabold uppercase">Confidential Search</span>
+                                    <i class="fa-solid fa-user-tie text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-bold text-brand-navy mb-2" data-i18n="p6-title">Corporate & Executive Search</h3>
+                                    <p class="text-xs text-brand-muted mb-4 leading-relaxed" data-i18n="p6-desc">
+                                        Confidential executive search and functional leadership recruiting across HR, Accounting, Finance, Supply Chain, and Corporate Administration.
+                                    </p>
+                                    <ul class="text-xs text-brand-slate space-y-1.5 mb-6 font-medium">
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600 text-[10px]"></i> HR Directors & Talent Acquisition</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600 text-[10px]"></i> Controllers & Senior Accountants</li>
+                                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-600 text-[10px]"></i> Supply Chain & Logistics Managers</li>
+                                    </ul>
+                                </div>
+                                <a href="#request-talent" onclick="navigateTo('request-talent')" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange flex items-center gap-1 transition-colors">
+                                    <span>Start Executive Search</span> <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-brand-orange font-bold text-xs uppercase tracking-widest" data-i18n="proc-tag">METHODOLOGY</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2 tracking-tight" data-i18n="proc-title">
+                            Our Structured Sourcing Process
+                        </h2>
+                        <p class="text-base text-brand-muted mt-3" data-i18n="proc-sub">
+                            We don't simply post job ads and filter resumes. We execute direct targeted sourcing to identify professionals who meet your exact operational requirements.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                        <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
+                            <span class="text-4xl font-black text-brand-orange/25 mb-4 block">01</span>
+                            <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-1-title">Needs Assessment</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed" data-i18n="step-1-desc">
+                                We analyze technical requirements, compensation benchmarks, team culture, relocation feasibility, and work authorization requirements before outreach starts.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
+                            <span class="text-4xl font-black text-brand-orange/25 mb-4 block">02</span>
+                            <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-2-title">Targeted Sourcing</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed" data-i18n="step-2-desc">
+                                Direct outreach to passive industry specialists, specialized candidate networks, referrals, and domain-specific talent pipelines nationwide.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
+                            <span class="text-4xl font-black text-brand-orange/25 mb-4 block">03</span>
+                            <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-3-title">Screening & Assessment</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed" data-i18n="step-3-desc">
+                                Rigorous evaluation of technical qualifications, hands-on experience, motivation, salary expectations, relocation willingness, and culture fit.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
+                            <span class="text-4xl font-black text-brand-orange/25 mb-4 block">04</span>
+                            <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-4-title">Presentation & Offer Support</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed" data-i18n="step-4-desc">
+                                Presenting vetted candidate profiles, managing interview coordination, facilitating offer discussions, and supporting onboarding transition.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANONYMIZED CREDIBILITY & EXPERIENCE WITH IMAGE OVERLAY -->
+            <section class="py-20 bg-brand-navy text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#E85A24_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-brand-orange font-bold text-xs uppercase tracking-widest" data-i18n="cred-tag">INDUSTRY FOOTPRINT</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold mt-2" data-i18n="cred-title">Trusted Recruiting Experience Across Critical Sectors</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 backdrop-blur">
+                            <div class="text-xs font-bold text-brand-orange uppercase mb-1">Semiconductor</div>
+                            <h4 class="font-bold text-base text-white">Global Semiconductor Equipment Manufacturer</h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Recruited Field Service Engineers and Equipment Technicians for cleanroom fab operations across major U.S. manufacturing hubs.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 backdrop-blur">
+                            <div class="text-xs font-bold text-brand-orange uppercase mb-1">EV & Battery</div>
+                            <h4 class="font-bold text-base text-white">Global EV Battery Cell Facility</h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Sourced bilingual process engineers, automated cell assembly specialists, and EH&S supervisors for large-scale plant commissioning.
+                            </p>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 backdrop-blur">
+                            <div class="text-xs font-bold text-brand-orange uppercase mb-1">Automotive</div>
+                            <h4 class="font-bold text-base text-white">Tier-1 Automotive Component Supplier</h4>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                                Placed Plant Managers, Quality Control Directors, and Materials Logistics Managers supporting Southeast OEM supply chains.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BOTTOM REVENUE CTA BANNER -->
+            <section class="py-20 relative overflow-hidden text-white">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-orange via-amber-600 to-brand-orange"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4" data-i18n="banner-title">
+                        Ready to Fill Your Hardest Open Position?
+                    </h2>
+                    <p class="text-lg text-amber-100 max-w-2xl mx-auto mb-8 font-normal" data-i18n="banner-sub">
+                        Contact Persona Link today to discuss your technical, engineering, or bilingual hiring requirements with a specialized recruiter.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#request-talent" onclick="navigateTo('request-talent')" class="bg-brand-navy hover:bg-slate-900 text-white px-8 py-4 rounded-xl font-bold text-base shadow-2xl transition-all">
+                            <span data-i18n="cta-request-talent">REQUEST TALENT NOW</span>
+                        </a>
+                        <a href="#contact" onclick="navigateTo('contact')" class="bg-white/20 hover:bg-white/30 text-white border border-white/40 px-6 py-4 rounded-xl font-bold text-base transition-all">
+                            <span>Schedule Consultation</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 2: REQUEST TALENT (EMPLOYER CONVERSION PAGE WITH JD UPLOAD) -->
+        <!-- ==================================================================== -->
         <section id="view-request-talent" class="page-view hidden py-12 md:py-16 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 
+                <!-- HEADER INTRO -->
                 <div class="text-center max-w-3xl mx-auto mb-10">
                     <span class="text-brand-orange font-bold text-xs uppercase tracking-widest" data-i18n="req-tag">EMPLOYER HIRING INQUIRY</span>
                     <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2 tracking-tight" data-i18n="req-title">
                         Tell Us What You're Hiring For
                     </h1>
                     <p class="text-base text-brand-muted mt-3" data-i18n="req-sub">
-                        We'll review your hiring requirements immediately and contact you to discuss a tailored search strategy.
+                        We'll review your hiring requirements immediately and contact you to discuss a tailored search strategy. Submit as much or as little detail as you currently have.
                     </p>
                 </div>
 
-                <iframe name="employer_hidden_iframe" id="employer_hidden_iframe" style="display:none;" onload="onEmployerFormIframeLoad()"></iframe>
-
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     
+                    <!-- LEFT COLUMN: FORM -->
                     <div class="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-md">
-                        <form id="talent-request-form" target="employer_hidden_iframe" action="https://formsubmit.co/annie@personalink.me" method="POST" enctype="multipart/form-data" onsubmit="handleEmployerFormSubmit()" class="space-y-6">
+                        <form id="talent-request-form" onsubmit="handleTalentRequestSubmit(event)" class="space-y-6">
                             
-                            <input type="hidden" name="_subject" id="req-form-subject" value="[Persona Link Request] Employer Hiring Inquiry">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_captcha" value="false">
-
+                            <!-- COMPANY & CONTACT INFO -->
                             <div class="border-b border-slate-200 pb-6">
                                 <h3 class="text-base font-bold text-brand-navy mb-4 flex items-center gap-2">
                                     <span class="w-6 h-6 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center text-xs font-bold">1</span>
@@ -462,23 +758,24 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-company">Company Name *</label>
-                                        <input type="text" name="Company Name" id="req-company" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Global Tech Manufacturing">
+                                        <input type="text" id="req-company" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Global Tech Manufacturing">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-contact">Contact Name *</label>
-                                        <input type="text" name="Contact Name" id="req-contact" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Jane Doe">
+                                        <input type="text" id="req-contact" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Jane Doe">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-email">Business Email *</label>
-                                        <input type="email" name="Business Email" id="req-email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="jdoe@company.com">
+                                        <input type="email" id="req-email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="jdoe@company.com">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-phone">Phone Number</label>
-                                        <input type="tel" name="Phone Number" id="req-phone" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="(909) 802-4648">
+                                        <input type="tel" id="req-phone" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="(404) 555-0199">
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- ROLE SPECIFICATIONS -->
                             <div class="border-b border-slate-200 pb-6">
                                 <h3 class="text-base font-bold text-brand-navy mb-4 flex items-center gap-2">
                                     <span class="w-6 h-6 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center text-xs font-bold">2</span>
@@ -488,12 +785,12 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-title">Job Title Needed *</label>
-                                        <input type="text" name="Job Title Needed" id="req-title" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Semiconductor Field Service Engineer">
+                                        <input type="text" id="req-title" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Semiconductor Field Service Engineer">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-industry">Industry Category</label>
-                                        <select name="Industry Category" id="req-industry" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-industry" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Semiconductor & Equipment">Semiconductor & Equipment</option>
                                             <option value="Engineering & Manufacturing">Engineering & Manufacturing</option>
                                             <option value="Automotive & EV Battery">Automotive & EV Battery</option>
@@ -507,7 +804,7 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-openings">Number of Openings</label>
-                                        <select name="Number of Openings" id="req-openings" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-openings" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="1 Position">1 Position</option>
                                             <option value="2-5 Positions">2-5 Positions</option>
                                             <option value="5-10 Positions">5-10 Positions</option>
@@ -517,17 +814,17 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-location">Job Location (City, State / Remote)</label>
-                                        <input type="text" name="Job Location" id="req-location" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., Atlanta, GA or Austin, TX">
+                                        <input type="text" id="req-location" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., Atlanta, GA or Austin, TX">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-salary">Target Salary Range</label>
-                                        <input type="text" name="Target Salary Range" id="req-salary" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="$90,000 - $120,000">
+                                        <input type="text" id="req-salary" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., $90,000 - $120,000">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-urgency">Hiring Urgency</label>
-                                        <select name="Hiring Urgency" id="req-urgency" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-urgency" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Immediate (Critical Vacancy)">Immediate (Critical Vacancy)</option>
                                             <option value="Within 30 Days">Within 30 Days</option>
                                             <option value="Within 60-90 Days">Within 60-90 Days</option>
@@ -537,6 +834,7 @@
                                 </div>
                             </div>
 
+                            <!-- QUALIFICATION SPECIFICS & DRAG-AND-DROP FILE UPLOAD -->
                             <div>
                                 <h3 class="text-base font-bold text-brand-navy mb-4 flex items-center gap-2">
                                     <span class="w-6 h-6 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center text-xs font-bold">3</span>
@@ -546,7 +844,7 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-bilingual">Bilingual Requirement?</label>
-                                        <select name="Bilingual Requirement" id="req-bilingual" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-bilingual" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Not Required">Not Required (English Only)</option>
                                             <option value="Korean-English Bilingual Preferred">Korean-English Bilingual Preferred</option>
                                             <option value="Korean-English Bilingual Required">Korean-English Bilingual Required</option>
@@ -556,7 +854,7 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-sponsorship">Work Authorization Requirement</label>
-                                        <select name="Work Authorization" id="req-sponsorship" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-sponsorship" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="U.S. Citizens / Green Card Only">U.S. Citizens / Green Card Only</option>
                                             <option value="Open to STEM OPT / F-1 Students (3-Year Auth)">Open to STEM OPT / F-1 Students (3-Year Auth)</option>
                                             <option value="Open to Visa Sponsorship (H-1B, E-2, etc.)">Open to Visa Sponsorship (H-1B, E-2, etc.)</option>
@@ -565,12 +863,13 @@
                                     </div>
                                 </div>
 
+                                <!-- DRAG & DROP JOB DESCRIPTION UPLOAD ZONE -->
                                 <div class="mb-4">
                                     <label class="block text-xs font-bold text-brand-navy mb-1">
-                                        Upload Job Description File (PDF, DOCX, DOC, TXT)
+                                        Upload Job Description (PDF, DOCX, DOC, TXT)
                                     </label>
                                     <div id="employer-dropzone" onclick="document.getElementById('req-jd-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-2xl p-6 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
-                                        <input type="file" name="Attached_Job_Description" id="req-jd-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleEmployerFileSelect(this.files)">
+                                        <input type="file" id="req-jd-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleEmployerFileSelect(this.files)">
                                         
                                         <div id="employer-upload-default" class="space-y-2">
                                             <div class="w-12 h-12 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition-transform">
@@ -604,25 +903,29 @@
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-jd">
                                             Or Paste Job Description / Key Skill Requirements
                                         </label>
-                                        <textarea name="Job Details / Notes" id="req-jd" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="If not attaching a file, paste details regarding duties, required equipment experience, education, etc."></textarea>
+                                        <textarea id="req-jd" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="If not attaching a file, paste details regarding duties, required equipment experience, education, etc."></textarea>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- SUBMIT BUTTON -->
                             <div class="pt-4">
-                                <button type="submit" id="emp-submit-btn" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-4 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2">
+                                <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-4 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2">
                                     <i class="fa-solid fa-paper-plane"></i>
                                     <span>SUBMIT HIRING INQUIRY</span>
                                 </button>
                                 <p class="text-center text-xs text-brand-muted mt-2">
-                                    Confidential submission. Your request with attached files will be automatically delivered to annie@personalink.me.
+                                    Confidential submission. Your information will never be shared without authorization.
                                 </p>
                             </div>
 
                         </form>
                     </div>
 
+                    <!-- RIGHT COLUMN: DIRECT EMAIL & SLA -->
                     <div class="lg:col-span-4 space-y-6">
+                        
+                        <!-- DIRECT EMAIL CARD -->
                         <div class="bg-brand-navy text-white p-6 sm:p-8 rounded-2xl shadow-md border border-slate-800">
                             <div class="w-10 h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center text-lg mb-4">
                                 <i class="fa-solid fa-envelope"></i>
@@ -633,13 +936,14 @@
                             </p>
                             <a id="direct-email-btn" href="mailto:annie@personalink.me?subject=Hiring%20Inquiry%20-%20Persona%20Link" class="w-full bg-white text-brand-navy hover:bg-slate-100 py-3 px-4 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                <span>Email: annie@personalink.me</span>
+                                <span id="email-display-label">Email: annie@personalink.me</span>
                             </a>
                             <p class="text-[11px] text-slate-400 mt-3 text-center">
                                 Direct Destination: <code class="bg-slate-800 px-1 py-0.5 rounded text-amber-300">annie@personalink.me</code>
                             </p>
                         </div>
 
+                        <!-- SLA / COMMITMENT -->
                         <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
                             <h4 class="text-sm font-bold text-brand-navy uppercase tracking-wider">The Persona Link Commitment</h4>
                             
@@ -674,35 +978,55 @@
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 3: FOR EMPLOYERS (#employers) -->
+        <!-- ==================================================================== -->
         <section id="view-employers" class="page-view hidden py-0 bg-white">
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0 opacity-25">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Executive+Recruiting+Meeting';" alt="Executive Boardroom Meeting" class="w-full h-full object-cover">
+                </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <span class="inline-block px-3 py-1 rounded bg-brand-orange/20 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest mb-3">EMPLOYER RECRUITING SOLUTIONS</span>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Tailored Search Solutions for Demanding Employers</h1>
-                    <p class="text-base sm:text-lg text-slate-300 mt-4 max-w-3xl mx-auto font-normal leading-relaxed">
-                        Whether scaling a semiconductor fab facility or launching an EV battery line, Persona Link delivers vetted technical talent.
+                    <span class="inline-block px-3 py-1 rounded bg-brand-orange/20 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest mb-3" data-i18n="emp-tag">EMPLOYER RECRUITING SOLUTIONS</span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight" data-i18n="emp-title">
+                        Tailored Search Solutions for Demanding Employers
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-300 mt-4 max-w-3xl mx-auto font-normal leading-relaxed" data-i18n="emp-sub">
+                        Whether you are scaling a semiconductor fab facility, launching a new EV battery production line, or replacing a key corporate executive, Persona Link delivers vetted talent built for your specific operational demands.
                     </p>
                 </div>
             </div>
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     <div class="p-8 rounded-2xl border-2 border-slate-200 bg-slate-50 relative card-hover">
                         <div class="inline-block px-3 py-1 rounded bg-brand-navy text-white text-xs font-bold mb-4">PERFORMANCE SEARCH</div>
                         <h3 class="text-2xl font-bold text-brand-navy mb-3">Contingency Direct Hire</h3>
                         <p class="text-sm text-brand-muted leading-relaxed mb-6">
-                            Ideal for critical technical, engineering, and professional roles. You only pay a recruiting fee when you successfully hire.
+                            Ideal for critical technical, engineering, and professional roles. You only pay a recruiting fee when you successfully hire a candidate presented by Persona Link.
                         </p>
-                        <a href="#request-talent" onclick="navigateTo('request-talent')" class="w-full bg-brand-orange text-white py-3 rounded-xl font-bold text-sm text-center block shadow-md">
+                        <ul class="text-xs text-brand-slate space-y-3 mb-8 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Zero upfront financial risk</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Dedicated passive candidate sourcing</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Replacement guarantee period included</li>
+                        </ul>
+                        <a href="#request-talent" onclick="navigateTo('request-talent')" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-3 rounded-xl font-bold text-sm text-center block transition-all shadow-md">
                             START CONTINGENCY SEARCH
                         </a>
                     </div>
+
                     <div class="p-8 rounded-2xl border-2 border-brand-navy bg-brand-navy text-white relative card-hover shadow-xl">
                         <div class="inline-block px-3 py-1 rounded bg-brand-orange text-white text-xs font-bold mb-4">PRIORITY & CONFIDENTIAL</div>
                         <h3 class="text-2xl font-bold text-white mb-3">Retained Executive Search</h3>
                         <p class="text-xs text-slate-300 leading-relaxed mb-6">
-                            For C-suite, VP, Plant Manager, or confidential replacement searches requiring dedicated recruiter bandwidth.
+                            For C-suite, VP, Plant Manager, or confidential replacement searches requiring dedicated executive recruiter resources, market intelligence, and stealth outreach.
                         </p>
-                        <a href="#request-talent" onclick="navigateTo('request-talent')" class="w-full bg-white text-brand-navy py-3 rounded-xl font-bold text-sm text-center block">
+                        <ul class="text-xs text-slate-300 space-y-3 mb-8 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Priority recruiter bandwidth & search mapping</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Exhaustive competitive talent mapping</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-orange"></i> Complete candidate confidentiality & non-disclosure</li>
+                        </ul>
+                        <a href="#request-talent" onclick="navigateTo('request-talent')" class="w-full bg-white text-brand-navy hover:bg-slate-100 py-3 rounded-xl font-bold text-sm text-center block transition-all">
                             DISCUSS EXECUTIVE SEARCH
                         </a>
                     </div>
@@ -710,8 +1034,14 @@
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 4: EXPERTISE (#expertise) -->
+        <!-- ==================================================================== -->
         <section id="view-expertise" class="page-view hidden py-0 bg-slate-50">
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Industrial+Architecture';" alt="Modern Technical Facility" class="w-full h-full object-cover">
+                </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span class="inline-block px-3 py-1 rounded bg-brand-orange/20 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest mb-3">PRACTICE AREAS</span>
                     <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Comprehensive Technical & Executive Coverage</h1>
@@ -726,7 +1056,7 @@
                     
                     <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm card-hover flex flex-col justify-between">
                         <div class="h-44 overflow-hidden relative">
-                            <img src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?auto=format&fit=crop&w=800&q=80" alt="EV Battery Plant" class="w-full h-full object-cover img-zoom">
+                            <img src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=EV+Battery+Plant';" alt="EV Battery Plant" class="w-full h-full object-cover img-zoom">
                             <div class="absolute inset-0 image-card-overlay p-4 flex items-end">
                                 <span class="px-2.5 py-1 rounded bg-blue-600 text-white text-[10px] font-extrabold uppercase">EV & Gigafactory</span>
                             </div>
@@ -769,12 +1099,48 @@
                         </div>
                     </div>
 
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm card-hover flex flex-col justify-between">
+                        <div class="h-44 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Cloud Data Center" class="w-full h-full object-cover img-zoom">
+                            <div class="absolute inset-0 image-card-overlay p-4 flex items-end">
+                                <span class="px-2.5 py-1 rounded bg-cyan-600 text-white text-[10px] font-extrabold uppercase">Cloud & Cyber</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-navy mb-2">IT, Cloud & Cybersecurity</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                AWS/Azure Cloud Engineers, MES Systems Administrators, Network Security Specialists, and Enterprise Software Architects.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm card-hover flex flex-col justify-between">
+                        <div class="h-44 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Executive Office" class="w-full h-full object-cover img-zoom">
+                            <div class="absolute inset-0 image-card-overlay p-4 flex items-end">
+                                <span class="px-2.5 py-1 rounded bg-amber-600 text-white text-[10px] font-extrabold uppercase">Confidential Search</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-navy mb-2">Corporate Functions</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">
+                                HR Directors, Talent Acquisition, Accounting Controllers, Legal Counsel, Logistics, and Executive Leadership.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 5: SEMICONDUCTOR RECRUITING (#semiconductor) -->
+        <!-- ==================================================================== -->
         <section id="view-semiconductor" class="page-view hidden py-0 bg-white">
             <div class="relative bg-brand-navy text-white py-16 md:py-24 overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0 opacity-30">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Semiconductor+Cleanroom';" alt="Semiconductor Wafer Fab Cleanroom" class="w-full h-full object-cover">
+                </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div class="max-w-3xl">
                         <span class="inline-block px-3.5 py-1.5 rounded-full bg-brand-orange text-white text-xs font-extrabold uppercase tracking-widest mb-4">HIGH-VALUE SPECIALTY PRACTICE</span>
@@ -818,20 +1184,31 @@
                     </div>
 
                     <div class="lg:col-span-5 bg-brand-navy text-white p-8 rounded-2xl shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-10 text-brand-orange text-9xl">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
                         <h3 class="text-xl font-bold mb-4 text-brand-orange relative z-10">Semiconductor Roles We Recruit</h3>
                         <ul class="text-xs text-slate-300 space-y-3 font-medium relative z-10">
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Senior Field Service Engineers (FSE)</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Process Integration Engineers</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Equipment Maintenance Technicians</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Fab Facilities & Cleanroom Managers</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Yield Improvement Specialists</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-orange"></i> Semiconductor Account Managers</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 6: BILINGUAL RECRUITING (#bilingual) -->
+        <!-- ==================================================================== -->
         <section id="view-bilingual" class="page-view hidden py-0 bg-slate-50">
             <div class="relative bg-brand-navy text-white py-16 md:py-24 overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0 opacity-25">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Global+Bilingual+Network';" alt="Global Business Communication" class="w-full h-full object-cover">
+                </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span class="inline-block px-3.5 py-1.5 rounded-full bg-purple-600 text-white text-xs font-extrabold uppercase tracking-widest mb-4">COMPETITIVE ADVANTAGE</span>
                     <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Korean-English Bilingual Recruiting</h1>
@@ -877,8 +1254,14 @@
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 7: CANDIDATES & JOBS BOARD (#jobs) -->
+        <!-- ==================================================================== -->
         <section id="view-jobs" class="page-view hidden py-0 bg-slate-50">
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Modern+Career+Office';" alt="Modern Tech Office Space" class="w-full h-full object-cover">
+                </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span class="inline-block px-3 py-1 rounded bg-brand-orange/20 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest mb-3">CAREER OPPORTUNITIES</span>
                     <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Current Open Positions</h1>
@@ -922,14 +1305,17 @@
                     </div>
                 </div>
 
+                <!-- JOB LISTINGS GRID -->
                 <div id="jobs-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    <!-- Populated dynamically via JS -->
                 </div>
 
+                <!-- CANDIDATE RESUME SUBMISSION BANNER -->
                 <div class="bg-brand-navy text-white p-8 rounded-2xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
                     <div>
                         <h3 class="text-xl font-bold mb-1">Don't See an Exact Match?</h3>
                         <p class="text-xs text-slate-300 max-w-xl">
-                            Submit your resume to our confidential talent network.
+                            Submit your resume to our confidential talent network. Our recruiting team will review your background for upcoming specialized positions.
                         </p>
                     </div>
                     <button onclick="openCandidateModal()" class="bg-brand-orange hover:bg-brand-orange-hover text-white px-6 py-3 rounded-xl font-bold text-xs whitespace-nowrap transition-all shadow-md">
@@ -939,8 +1325,14 @@
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 8: ABOUT US (#about) -->
+        <!-- ==================================================================== -->
         <section id="view-about" class="page-view hidden py-0 bg-white">
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Georgia+Industrial+Hub';" alt="Georgia Corporate Headquarters" class="w-full h-full object-cover">
+                </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span class="inline-block px-3 py-1 rounded bg-brand-orange/20 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest mb-3">ABOUT PERSONA LINK</span>
                     <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Specialized Search Firm Based in Georgia</h1>
@@ -957,11 +1349,33 @@
                         We believe that successful hiring in complex technical sectors cannot be accomplished through automated algorithms alone. Specialized positions in semiconductor equipment, EV battery manufacturing, and cross-border management require direct sourcing, genuine industry understanding, and thorough human evaluation.
                     </p>
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <h4 class="font-bold text-brand-navy text-base mb-2"><i class="fa-solid fa-map-location-dot text-brand-orange mr-2"></i> Georgia Base, National Scope</h4>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            Located near major Southeastern industrial and technological corridors, we recruit for operations nationwide including Georgia, Texas, North Carolina, Alabama, Tennessee, and California.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
+                        <h4 class="font-bold text-brand-navy text-base mb-2"><i class="fa-solid fa-user-shield text-brand-orange mr-2"></i> Stealth & Confidentiality</h4>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            We protect our clients' confidential search projects and our candidates' active career status with strict professional discretion throughout the recruiting cycle.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 9: CONTACT US (#contact) -->
+        <!-- ==================================================================== -->
         <section id="view-contact" class="page-view hidden py-0 bg-slate-50">
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="Corporate Headquarters Office" class="w-full h-full object-cover">
+                </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span class="inline-block px-3 py-1 rounded bg-brand-orange/20 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest mb-3">GET IN TOUCH</span>
                     <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Connect with Persona Link</h1>
@@ -970,8 +1384,6 @@
                     </p>
                 </div>
             </div>
-
-            <iframe name="contact_hidden_iframe" id="contact_hidden_iframe" style="display:none;" onload="onContactFormIframeLoad()"></iframe>
 
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-md grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -993,27 +1405,31 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="mt-8 pt-6 border-t border-slate-200">
+                            <h4 class="font-bold text-brand-navy text-sm mb-2">Employers Fast-Track</h4>
+                            <a href="#request-talent" onclick="navigateTo('request-talent')" class="text-xs font-bold text-brand-orange hover:underline flex items-center gap-1">
+                                <span>Go to Request Talent Qualification Form</span>
+                                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <div>
-                        <form target="contact_hidden_iframe" action="https://formsubmit.co/annie@personalink.me" method="POST" onsubmit="handleContactFormSubmit()" class="space-y-4">
-                            <input type="hidden" name="_subject" value="[Persona Link Website] General Contact Message">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_captcha" value="false">
-
+                        <form onsubmit="showSubmissionConfirmation('Contact Submitted', 'Thank you for contacting Persona Link. A representative will reach out to you shortly.', ''); return false;" class="space-y-4">
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Your Name *</label>
-                                <input type="text" name="Sender Name" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                                <input type="text" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Business Email *</label>
-                                <input type="email" name="Sender Email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                                <input type="email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Message *</label>
-                                <textarea name="Message" rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange"></textarea>
+                                <textarea rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange"></textarea>
                             </div>
-                            <button type="submit" id="contact-submit-btn" class="w-full bg-brand-navy text-white py-3 rounded-xl text-xs font-bold hover:bg-brand-slate transition-all shadow-md">
+                            <button type="submit" class="w-full bg-brand-navy text-white py-3 rounded-xl text-xs font-bold hover:bg-brand-slate transition-all shadow-md">
                                 Send Message
                             </button>
                         </form>
@@ -1022,13 +1438,23 @@
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 10: PRIVACY POLICY (#privacy) -->
+        <!-- ==================================================================== -->
         <section id="view-privacy" class="page-view hidden py-16 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-xs text-brand-charcoal">
                 <h1 class="text-2xl font-bold text-brand-navy">Privacy Policy</h1>
                 <p>Persona Link ("we", "our", "us") operates personalink.me. We respect your privacy and are committed to protecting candidate and employer data.</p>
+                <h3 class="text-sm font-bold text-brand-navy">Information Collection</h3>
+                <p>We collect information provided directly through forms including employer hiring details, job title needs, candidate resumes, contact details, and work authorization preferences.</p>
+                <h3 class="text-sm font-bold text-brand-navy">Use of Information</h3>
+                <p>Information collected is strictly used for evaluating candidate placement fit and conducting recruitment and executive search engagements. We do not sell or monetize candidate or employer data.</p>
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 11: 404 NOT FOUND (#404) -->
+        <!-- ==================================================================== -->
         <section id="view-404" class="page-view hidden py-24 bg-slate-50 text-center">
             <div class="max-w-md mx-auto px-4">
                 <span class="text-6xl font-black text-brand-orange block">404</span>
@@ -1042,6 +1468,7 @@
 
     </main>
 
+    <!-- CANDIDATE RESUME MODAL (WITH ENHANCED DRAG-AND-DROP UPLOAD ZONE) -->
     <div id="candidate-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white max-w-lg w-full rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative">
             <div class="bg-brand-navy text-white p-6 flex justify-between items-center">
@@ -1049,24 +1476,18 @@
                 <button onclick="closeCandidateModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
             </div>
             
-            <iframe name="cand_hidden_iframe" id="cand_hidden_iframe" style="display:none;" onload="onCandFormIframeLoad()"></iframe>
-
-            <form target="cand_hidden_iframe" action="https://formsubmit.co/annie@personalink.me" method="POST" enctype="multipart/form-data" onsubmit="handleCandidateFormSubmit()" class="p-6 space-y-4">
-                <input type="hidden" name="_subject" id="cand-form-subject" value="[Persona Link Candidate] Resume Submission">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-
+            <form onsubmit="handleCandidateResumeSubmit(event)" class="p-6 space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Full Name *</label>
-                    <input type="text" name="Candidate Name" id="cand-name" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                    <input type="text" id="cand-name" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Email Address *</label>
-                    <input type="email" name="Candidate Email" id="cand-email" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                    <input type="email" id="cand-email" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Primary Specialty / Industry</label>
-                    <select name="Primary Specialty" id="cand-specialty" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none bg-white">
+                    <select id="cand-specialty" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none bg-white">
                         <option value="Semiconductor Equipment / Field Service">Semiconductor Equipment / Field Service</option>
                         <option value="Engineering & Manufacturing">Engineering & Manufacturing</option>
                         <option value="Automotive / EV Battery">Automotive / EV Battery</option>
@@ -1076,10 +1497,11 @@
                     </select>
                 </div>
 
+                <!-- DRAG & DROP RESUME UPLOAD -->
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Attach Resume File (PDF, DOC, DOCX) *</label>
                     <div id="candidate-dropzone" onclick="document.getElementById('cand-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-xl p-5 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
-                        <input type="file" name="Attached_Resume_File" id="cand-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleCandidateFileSelect(this.files)">
+                        <input type="file" id="cand-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleCandidateFileSelect(this.files)">
                         
                         <div id="candidate-upload-default" class="space-y-1">
                             <div class="w-10 h-10 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-lg group-hover:scale-110 transition-transform">
@@ -1110,9 +1532,9 @@
 
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Paste Resume Summary or Additional Notes (Optional)</label>
-                    <textarea name="Resume Notes / Summary" id="cand-resume-text" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Paste relevant experience, target salary, or relocation preferences..."></textarea>
+                    <textarea id="cand-resume-text" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Paste relevant experience, target salary, or relocation preferences..."></textarea>
                 </div>
-                <button type="submit" id="cand-submit-btn" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-3 rounded-xl font-bold text-xs shadow transition-all flex items-center justify-center gap-2">
+                <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-3 rounded-xl font-bold text-xs shadow transition-all flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i>
                     <span>SUBMIT RESUME TO RECRUITER</span>
                 </button>
@@ -1120,6 +1542,7 @@
         </div>
     </div>
 
+    <!-- DEVELOPER & DEPLOYMENT FILES PORTAL MODAL -->
     <div id="dev-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
         <div class="bg-white max-w-4xl w-full h-[85vh] rounded-2xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden">
             
@@ -1157,6 +1580,7 @@
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="bg-brand-navy text-white border-t border-slate-800 pt-16 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
@@ -1218,129 +1642,12 @@
         </div>
     </footer>
 
+    <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
-        // State variables for form submits
-        let employerFormSubmitted = false;
-        let candidateFormSubmitted = false;
-        let contactFormSubmitted = false;
-
-        // Global iframe onLoad handlers to eliminate ReferenceError
-        function onEmployerFormIframeLoad() {
-            if (employerFormSubmitted) {
-                employerFormSubmitted = false;
-                const contactEl = document.getElementById('req-contact');
-                const titleEl = document.getElementById('req-title');
-                const contact = contactEl ? contactEl.value : 'Employer';
-                const title = titleEl ? titleEl.value : 'Position';
-
-                showSubmissionConfirmation(
-                    "Hiring Request Received with Attachments!",
-                    `Thank you, ${contact}. Your request for "${title}" along with any attached Job Description files has been transmitted directly to annie@personalink.me. A senior recruiter will review your specifications shortly.`,
-                    ""
-                );
-
-                const form = document.getElementById('talent-request-form');
-                if (form) form.reset();
-                removeEmployerFile();
-                
-                const btn = document.getElementById('emp-submit-btn');
-                if (btn) {
-                    btn.disabled = false;
-                    btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> <span>SUBMIT HIRING INQUIRY</span>`;
-                }
-            }
-        }
-
-        function onCandFormIframeLoad() {
-            if (candidateFormSubmitted) {
-                candidateFormSubmitted = false;
-                const nameEl = document.getElementById('cand-name');
-                const name = nameEl ? nameEl.value : 'Candidate';
-
-                closeCandidateModal();
-                showSubmissionConfirmation(
-                    "Resume File Submitted Successfully!",
-                    `Thank you, ${name}. Your candidate profile and resume file have been attached and delivered to annie@personalink.me. Our team will review your qualifications.`,
-                    ""
-                );
-
-                const form = document.querySelector('#candidate-modal form');
-                if (form) form.reset();
-                removeCandidateFile();
-
-                const btn = document.getElementById('cand-submit-btn');
-                if (btn) {
-                    btn.disabled = false;
-                    btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> <span>SUBMIT RESUME TO RECRUITER</span>`;
-                }
-            }
-        }
-
-        function onContactFormIframeLoad() {
-            if (contactFormSubmitted) {
-                contactFormSubmitted = false;
-                showSubmissionConfirmation(
-                    "Message Sent!",
-                    "Thank you for contacting Persona Link. Your message has been sent to annie@personalink.me.",
-                    ""
-                );
-                const btn = document.getElementById('contact-submit-btn');
-                if (btn) {
-                    btn.disabled = false;
-                    btn.innerHTML = "Send Message";
-                }
-            }
-        }
-
-        function handleEmployerFormSubmit() {
-            const companyEl = document.getElementById('req-company');
-            const titleEl = document.getElementById('req-title');
-            const company = companyEl ? companyEl.value : '';
-            const title = titleEl ? titleEl.value : '';
-            
-            const subjEl = document.getElementById('req-form-subject');
-            if (subjEl) {
-                subjEl.value = `[Persona Link Request] ${company} - ${title}`;
-            }
-
-            const btn = document.getElementById('emp-submit-btn');
-            if (btn) {
-                btn.disabled = true;
-                btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Transmitting Request & Files...</span>`;
-            }
-            
-            employerFormSubmitted = true;
-        }
-
-        function handleCandidateFormSubmit() {
-            const nameEl = document.getElementById('cand-name');
-            const specEl = document.getElementById('cand-specialty');
-            const name = nameEl ? nameEl.value : '';
-            const specialty = specEl ? specEl.value : '';
-
-            const subjEl = document.getElementById('cand-form-subject');
-            if (subjEl) {
-                subjEl.value = `[Persona Link Candidate] Resume: ${name} - ${specialty}`;
-            }
-
-            const btn = document.getElementById('cand-submit-btn');
-            if (btn) {
-                btn.disabled = true;
-                btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Transmitting Resume...</span>`;
-            }
-
-            candidateFormSubmitted = true;
-        }
-
-        function handleContactFormSubmit() {
-            const btn = document.getElementById('contact-submit-btn');
-            if (btn) {
-                btn.disabled = true;
-                btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Sending...</span>`;
-            }
-            contactFormSubmitted = true;
-        }
-
+        
+        // ====================================================================
+        // 1. SAMPLE STRUCTURED JOBS DATA
+        // ====================================================================
         const JOBS_DATA = [
             {
                 id: "JOB-101",
@@ -1404,6 +1711,9 @@
             }
         ];
 
+        // ====================================================================
+        // 2. BILINGUAL TRANSLATION DICTIONARY
+        // ====================================================================
         const TRANSLATIONS = {
             en: {
                 "topbar-msg": "Need critical talent in Engineering, Semiconductor, or Manufacturing?",
@@ -1509,7 +1819,7 @@
                 "pain-title": "핵심 포지션 공석이 길어지고 계십니까?",
                 "pain-desc": "기술적 난이도가 높은 포지션의 공석이 장기화되면 생산 차질과 매출 손실, 기존 팀의 피로도가 누적됩니다.",
                 "pain-1-title": "특수 기술 및 장비 자격 요건",
-                "pain-1-desc": "반도체 장비 엔지니어 등은 단순 채용 공고만으로는 검증된 수동적(Passive) 인재를 찾기 어렵습니대.",
+                "pain-1-desc": "반도체 장비 엔지니어 등은 단순 채용 공고만으로는 검증된 수동적(Passive) 인재를 찾기 어렵습니다.",
                 "pain-2-title": "한영 이중언어 및 본사 커뮤니케이션",
                 "pain-2-desc": "미국 법인을 설립하는 한국 기업은 본사 보고와 현지 공장 운영을 연결할 수 있는 검증된 이중언어 리더십이 필수적입니다.",
                 "pain-3-title": "사내 HR의 인가용성 한계",
@@ -1557,80 +1867,25 @@
 
         let currentLang = 'en';
 
+        // Helper format file size
         function formatFileSize(bytes) {
-            if (!bytes || bytes === 0) return '0 Bytes';
+            if (bytes === 0) return '0 Bytes';
             const k = 1024;
             const sizes = ['Bytes', 'KB', 'MB', 'GB'];
             const i = Math.floor(Math.log(bytes) / Math.log(k));
             return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
         }
 
-        // Phone Formatter: (909) 802-4648
-        function formatPhoneInput(e) {
-            let input = e.target.value.replace(/\D/g, '');
-            if (input.length > 10) input = input.substring(0, 10);
-            
-            let formatted = '';
-            if (input.length === 0) {
-                formatted = '';
-            } else if (input.length <= 3) {
-                formatted = `(${input}`;
-            } else if (input.length <= 6) {
-                formatted = `(${input.substring(0, 3)}) ${input.substring(3)}`;
-            } else {
-                formatted = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6)}`;
-            }
-            e.target.value = formatted;
-        }
-
-        // Salary Formatter: $90,000 - $150,000
-        function formatSalaryInput(e) {
-            let raw = e.target.value;
-            if (!raw) return;
-
-            let hasSeparator = raw.includes('-') || raw.includes('~');
-            let parts = raw.split(/[-~]/);
-
-            let formatNum = (str) => {
-                let digits = str.replace(/\D/g, '');
-                if (!digits) return '';
-                return '$' + parseInt(digits, 10).toLocaleString('en-US');
-            };
-
-            if (hasSeparator) {
-                let firstPart = formatNum(parts[0]);
-                let secondPart = parts.length > 1 ? formatNum(parts[1]) : '';
-                e.target.value = firstPart + (firstPart ? ' - ' : '') + secondPart;
-            } else {
-                e.target.value = formatNum(raw);
-            }
-        }
-
-        function initFormFormatters() {
-            const phoneInput = document.getElementById('req-phone');
-            if (phoneInput) {
-                phoneInput.addEventListener('input', formatPhoneInput);
-            }
-
-            const salaryInput = document.getElementById('req-salary');
-            if (salaryInput) {
-                salaryInput.addEventListener('input', formatSalaryInput);
-            }
-        }
-
+        // ====================================================================
+        // FILE UPLOAD HANDLERS (DRAG & DROP + INPUT)
+        // ====================================================================
+        
+        // Employer JD File
         let selectedEmployerFile = null;
 
         function handleEmployerFileSelect(files) {
             if (files && files.length > 0) {
                 selectedEmployerFile = files[0];
-
-                const fileInput = document.getElementById('req-jd-file');
-                if (fileInput) {
-                    const dt = new DataTransfer();
-                    dt.items.add(files[0]);
-                    fileInput.files = dt.files;
-                }
-
                 document.getElementById('employer-upload-default').classList.add('hidden');
                 document.getElementById('employer-upload-selected').classList.remove('hidden');
                 document.getElementById('employer-file-name').innerText = selectedEmployerFile.name;
@@ -1640,25 +1895,17 @@
 
         function removeEmployerFile() {
             selectedEmployerFile = null;
-            const fileInput = document.getElementById('req-jd-file');
-            if (fileInput) fileInput.value = '';
+            document.getElementById('req-jd-file').value = '';
             document.getElementById('employer-upload-selected').classList.add('hidden');
             document.getElementById('employer-upload-default').classList.remove('hidden');
         }
 
+        // Candidate Resume File
         let selectedCandidateFile = null;
 
         function handleCandidateFileSelect(files) {
             if (files && files.length > 0) {
                 selectedCandidateFile = files[0];
-
-                const fileInput = document.getElementById('cand-file');
-                if (fileInput) {
-                    const dt = new DataTransfer();
-                    dt.items.add(files[0]);
-                    fileInput.files = dt.files;
-                }
-
                 document.getElementById('candidate-upload-default').classList.add('hidden');
                 document.getElementById('candidate-upload-selected').classList.remove('hidden');
                 document.getElementById('cand-file-name').innerText = selectedCandidateFile.name;
@@ -1668,49 +1915,52 @@
 
         function removeCandidateFile() {
             selectedCandidateFile = null;
-            const fileInput = document.getElementById('cand-file');
-            if (fileInput) fileInput.value = '';
+            document.getElementById('cand-file').value = '';
             document.getElementById('candidate-upload-selected').classList.add('hidden');
             document.getElementById('candidate-upload-default').classList.remove('hidden');
         }
 
+        // Set up Drag and Drop Events on Load
         function setupDragAndDrop() {
             const empDropzone = document.getElementById('employer-dropzone');
             const candDropzone = document.getElementById('candidate-dropzone');
 
-            if (empDropzone && candDropzone) {
-                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                    empDropzone.addEventListener(eventName, preventDefaults, false);
-                    candDropzone.addEventListener(eventName, preventDefaults, false);
-                });
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                empDropzone.addEventListener(eventName, preventDefaults, false);
+                candDropzone.addEventListener(eventName, preventDefaults, false);
+            });
 
-                function preventDefaults(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-
-                ['dragenter', 'dragover'].forEach(eventName => {
-                    empDropzone.addEventListener(eventName, () => empDropzone.classList.add('dropzone-active'), false);
-                    candDropzone.addEventListener(eventName, () => candDropzone.classList.add('dropzone-active'), false);
-                });
-
-                ['dragleave', 'drop'].forEach(eventName => {
-                    empDropzone.addEventListener(eventName, () => empDropzone.classList.remove('dropzone-active'), false);
-                    candDropzone.addEventListener(eventName, () => candDropzone.classList.remove('dropzone-active'), false);
-                });
-
-                empDropzone.addEventListener('drop', (e) => {
-                    const dt = e.dataTransfer;
-                    handleEmployerFileSelect(dt.files);
-                }, false);
-
-                candDropzone.addEventListener('drop', (e) => {
-                    const dt = e.dataTransfer;
-                    handleCandidateFileSelect(dt.files);
-                }, false);
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
             }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                empDropzone.addEventListener(eventName, () => empDropzone.classList.add('dropzone-active'), false);
+                candDropzone.addEventListener(eventName, () => candDropzone.classList.add('dropzone-active'), false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                empDropzone.addEventListener(eventName, () => empDropzone.classList.remove('dropzone-active'), false);
+                candDropzone.addEventListener(eventName, () => candDropzone.classList.remove('dropzone-active'), false);
+            });
+
+            empDropzone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleEmployerFileSelect(files);
+            }, false);
+
+            candDropzone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleCandidateFileSelect(files);
+            }, false);
         }
 
+        // ====================================================================
+        // 3. NAVIGATION ROUTER
+        // ====================================================================
         function navigateTo(viewId) {
             const views = document.querySelectorAll('.page-view');
             views.forEach(v => v.classList.add('hidden'));
@@ -1720,8 +1970,7 @@
                 target.classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                const errView = document.getElementById('view-404');
-                if (errView) errView.classList.remove('hidden');
+                document.getElementById('view-404').classList.remove('hidden');
             }
 
             const navLinks = document.querySelectorAll('nav a');
@@ -1736,7 +1985,7 @@
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('hidden');
+            menu.classList.toggle('hidden');
         }
 
         function selectQuickIndustry(industryName) {
@@ -1749,10 +1998,12 @@
             }, 100);
         }
 
+        // ====================================================================
+        // 4. LANGUAGE SWITCHER LOGIC
+        // ====================================================================
         function switchLanguage() {
             currentLang = currentLang === 'en' ? 'ko' : 'en';
-            const langToggle = document.getElementById('lang-toggle-text');
-            if (langToggle) langToggle.innerText = currentLang === 'en' ? 'EN | 한국어' : '한국어 | EN';
+            document.getElementById('lang-toggle-text').innerText = currentLang === 'en' ? 'EN | 한국어' : '한국어 | EN';
 
             const elements = document.querySelectorAll('[data-i18n]');
             elements.forEach(el => {
@@ -1763,6 +2014,9 @@
             });
         }
 
+        // ====================================================================
+        // 5. JOBS BOARD RENDER & FILTERING
+        // ====================================================================
         function renderJobs(jobs) {
             const container = document.getElementById('jobs-container');
             if (!container) return;
@@ -1805,13 +2059,9 @@
         }
 
         function filterJobs() {
-            const kwEl = document.getElementById('job-search-keyword');
-            const indEl = document.getElementById('job-filter-industry');
-            const locEl = document.getElementById('job-search-location');
-
-            const keyword = kwEl ? kwEl.value.toLowerCase() : '';
-            const industry = indEl ? indEl.value : 'ALL';
-            const location = locEl ? locEl.value.toLowerCase() : '';
+            const keyword = document.getElementById('job-search-keyword').value.toLowerCase();
+            const industry = document.getElementById('job-filter-industry').value;
+            const location = document.getElementById('job-search-location').value.toLowerCase();
 
             const filtered = JOBS_DATA.filter(job => {
                 const matchKeyword = job.title.toLowerCase().includes(keyword) || job.summary.toLowerCase().includes(keyword) || job.requirements.toLowerCase().includes(keyword);
@@ -1824,12 +2074,9 @@
         }
 
         function resetJobFilters() {
-            const kw = document.getElementById('job-search-keyword');
-            const ind = document.getElementById('job-filter-industry');
-            const loc = document.getElementById('job-search-location');
-            if (kw) kw.value = '';
-            if (ind) ind.value = 'ALL';
-            if (loc) loc.value = '';
+            document.getElementById('job-search-keyword').value = '';
+            document.getElementById('job-filter-industry').value = 'ALL';
+            document.getElementById('job-search-location').value = '';
             renderJobs(JOBS_DATA);
         }
 
@@ -1841,14 +2088,68 @@
             }, 100);
         }
 
+        // ====================================================================
+        // 6. FORM HANDLERS (REQUEST TALENT & CANDIDATE RESUME)
+        // ====================================================================
+        function handleTalentRequestSubmit(e) {
+            e.preventDefault();
+            
+            const company = document.getElementById('req-company').value;
+            const contact = document.getElementById('req-contact').value;
+            const email = document.getElementById('req-email').value;
+            const phone = document.getElementById('req-phone').value;
+            const title = document.getElementById('req-title').value;
+            const industry = document.getElementById('req-industry').value;
+            const urgency = document.getElementById('req-urgency').value;
+            const jd = document.getElementById('req-jd').value;
+            const fileName = selectedEmployerFile ? selectedEmployerFile.name : "None attached (Text provided)";
+
+            const summary = `
+Persona Link Employer Hiring Request Submitted:
+----------------------------------------------
+Company: ${company}
+Contact: ${contact} (${email}, ${phone})
+Role Needed: ${title} (${industry})
+Urgency: ${urgency}
+Attached JD File: ${fileName}
+Job Details / Notes: ${jd}
+----------------------------------------------
+            `;
+
+            showSubmissionConfirmation("Hiring Request Submitted!", "Thank you, " + contact + ". A senior Persona Link recruiter will review your requirements for " + title + " and contact you within 24 business hours.", summary);
+        }
+
+        function handleCandidateResumeSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('cand-name').value;
+            const email = document.getElementById('cand-email').value;
+            const specialty = document.getElementById('cand-specialty').value;
+            const notes = document.getElementById('cand-resume-text').value;
+            const fileName = selectedCandidateFile ? selectedCandidateFile.name : "No file attached";
+
+            closeCandidateModal();
+
+            const subject = encodeURIComponent(`Candidate Application: ${name} - ${specialty}`);
+            const body = encodeURIComponent(`Candidate Submission:\nName: ${name}\nEmail: ${email}\nSpecialty: ${specialty}\nAttached Resume: ${fileName}\n\nNotes / Summary:\n${notes}`);
+            const mailtoUrl = `mailto:annie@personalink.me?subject=${subject}&body=${body}`;
+
+            showSubmissionConfirmation(
+                "Resume Submitted Successfully", 
+                `Thank you, ${name}. Your candidate application has been pre-formatted for annie@personalink.me. Click the button below if your email client didn't open automatically to send your resume file directly.`, 
+                `Candidate Submission Details:\nName: ${name}\nEmail: ${email}\nSpecialty: ${specialty}\nFile: ${fileName}\n\nNotes:\n${notes}`
+            );
+
+            setTimeout(() => {
+                window.location.href = mailtoUrl;
+            }, 800);
+        }
+
         function openCandidateModal() {
-            const modal = document.getElementById('candidate-modal');
-            if (modal) modal.classList.remove('hidden');
+            document.getElementById('candidate-modal').classList.remove('hidden');
         }
 
         function closeCandidateModal() {
-            const modal = document.getElementById('candidate-modal');
-            if (modal) modal.classList.add('hidden');
+            document.getElementById('candidate-modal').classList.add('hidden');
         }
 
         function showSubmissionConfirmation(title, message, payload) {
@@ -1861,6 +2162,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-brand-navy mb-2">${title}</h3>
                     <p class="text-xs text-brand-muted leading-relaxed mb-4">${message}</p>
+                    ${payload ? `<textarea readonly class="w-full h-28 p-2 rounded bg-slate-100 border text-[11px] font-mono text-slate-700 mb-4">${payload}</textarea>` : ''}
                     <button onclick="this.closest('.fixed').remove()" class="w-full bg-brand-navy text-white py-3 rounded-xl font-bold text-xs">
                         Done
                     </button>
@@ -1869,6 +2171,9 @@
             document.body.appendChild(modal);
         }
 
+        // ====================================================================
+        // 7. DEVELOPER & CLOUDFLARE DEPLOYMENT CODE PORTAL
+        // ====================================================================
         const DEV_FILES = {
             headers: `/*
   # Cloudflare Pages Security & Performance Headers for personalink.me
@@ -1947,27 +2252,30 @@ ITEMS REQUIRING OWNER CONFIRMATION (BUSINESS COMPLIANCE)
    - Confirmed active target inbox: annie@personalink.me
 
 2. Client Logos & Placement Claims
-   - Per business rules, specific client company names are anonymized.
+   - Per business rules, specific client company names are anonymized as:
+     * "Global Semiconductor Equipment Manufacturer"
+     * "Global EV Battery Manufacturer"
+   - Do NOT publish exact confidential client names until written approval is secured.
+
+3. SLA Claims Excluded per Guidelines
+   - Guarantees such as "Candidates within 48 hours" or "Number one in Georgia" have been intentionally omitted to maintain professional recruiter credibility.
 `
         };
 
         let currentDevTab = 'headers';
 
         function openDevModal() {
-            const devModal = document.getElementById('dev-modal');
-            if (devModal) devModal.classList.remove('hidden');
+            document.getElementById('dev-modal').classList.remove('hidden');
             switchDevTab('headers');
         }
 
         function closeDevModal() {
-            const devModal = document.getElementById('dev-modal');
-            if (devModal) devModal.classList.add('hidden');
+            document.getElementById('dev-modal').classList.add('hidden');
         }
 
         function switchDevTab(tabKey) {
             currentDevTab = tabKey;
-            const devContent = document.getElementById('dev-code-content');
-            if (devContent) devContent.innerText = DEV_FILES[tabKey] || '';
+            document.getElementById('dev-code-content').innerText = DEV_FILES[tabKey] || '';
             
             const tabs = ['headers', 'redirects', 'robots', 'sitemap', 'jobsjson', 'guide', 'checklist'];
             tabs.forEach(t => {
@@ -1993,9 +2301,11 @@ ITEMS REQUIRING OWNER CONFIRMATION (BUSINESS COMPLIANCE)
             alert("Code for " + currentDevTab + " copied to clipboard!");
         }
 
+        // ====================================================================
+        // 8. INITIALIZATION ON WINDOW LOAD
+        // ====================================================================
         window.onload = function() {
             setupDragAndDrop();
-            initFormFormatters();
 
             const hash = window.location.hash.replace('#', '');
             if (hash) {
