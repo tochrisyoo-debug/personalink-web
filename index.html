@@ -107,6 +107,12 @@
             border-bottom: 2px solid #E85A24;
         }
 
+        /* Drag and Drop Zone Hover State */
+        .dropzone-active {
+            border-color: #E85A24 !important;
+            background-color: #FFF4EF !important;
+        }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -276,7 +282,7 @@
                             </div>
                         </div>
 
-                        <!-- HERO RIGHT COLUMN (Interactive Quick Match Widget + Live Badge Overlay) -->
+                        <!-- HERO RIGHT COLUMN -->
                         <div class="lg:col-span-5 relative">
                             <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl border border-slate-200 text-brand-navy relative z-10">
                                 <div class="absolute -top-3 -right-3 bg-brand-orange text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
@@ -363,7 +369,6 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- PAIN CARD 1 -->
                         <div class="rounded-2xl border border-slate-200 bg-brand-light overflow-hidden shadow-sm card-hover flex flex-col justify-between group">
                             <div class="h-48 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Semiconductor+Cleanroom';" alt="Semiconductor Cleanroom Fab" class="w-full h-full object-cover img-zoom">
@@ -385,7 +390,6 @@
                             </div>
                         </div>
 
-                        <!-- PAIN CARD 2 -->
                         <div class="rounded-2xl border border-slate-200 bg-brand-light overflow-hidden shadow-sm card-hover flex flex-col justify-between group">
                             <div class="h-48 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Bilingual+Global+Meeting';" alt="Global Business Meeting" class="w-full h-full object-cover img-zoom">
@@ -407,7 +411,6 @@
                             </div>
                         </div>
 
-                        <!-- PAIN CARD 3 -->
                         <div class="rounded-2xl border border-slate-200 bg-brand-light overflow-hidden shadow-sm card-hover flex flex-col justify-between group">
                             <div class="h-48 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Industrial+Manufacturing';" alt="Automated Manufacturing Line" class="w-full h-full object-cover img-zoom">
@@ -430,7 +433,6 @@
                         </div>
                     </div>
 
-                    <!-- MID-SECTION CTA -->
                     <div class="mt-12 text-center">
                         <a href="#request-talent" onclick="navigateTo('request-talent')" class="inline-flex items-center gap-3 bg-brand-navy hover:bg-brand-slate text-white px-8 py-4 rounded-xl font-bold text-sm transition-all shadow-md">
                             <span data-i18n="cta-tell-us">TELL US WHAT YOU'RE HIRING FOR</span>
@@ -455,7 +457,6 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         
-                        <!-- PRACTICE 1: SEMICONDUCTOR -->
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
                             <div class="h-40 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Semiconductor';" alt="Semiconductor Equipment" class="w-full h-full object-cover img-zoom">
@@ -482,7 +483,6 @@
                             </div>
                         </div>
 
-                        <!-- PRACTICE 2: AUTOMOTIVE & EV BATTERY -->
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
                             <div class="h-40 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=EV+Battery+Manufacturing';" alt="EV Battery Plant" class="w-full h-full object-cover img-zoom">
@@ -509,7 +509,6 @@
                             </div>
                         </div>
 
-                        <!-- PRACTICE 3: ENGINEERING & MANUFACTURING -->
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
                             <div class="h-40 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Manufacturing+Engineering';" alt="Engineering Plant Operations" class="w-full h-full object-cover img-zoom">
@@ -536,7 +535,6 @@
                             </div>
                         </div>
 
-                        <!-- PRACTICE 4: BILINGUAL RECRUITING -->
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
                             <div class="h-40 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Bilingual+Network';" alt="Global Network Connection" class="w-full h-full object-cover img-zoom">
@@ -563,7 +561,6 @@
                             </div>
                         </div>
 
-                        <!-- PRACTICE 5: IT, CLOUD & CYBERSECURITY -->
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
                             <div class="h-40 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Cloud+Security+Infrastructure';" alt="Server Network Data Center" class="w-full h-full object-cover img-zoom">
@@ -590,7 +587,6 @@
                             </div>
                         </div>
 
-                        <!-- PRACTICE 6: CORPORATE & EXECUTIVE -->
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm card-hover overflow-hidden group flex flex-col justify-between">
                             <div class="h-40 overflow-hidden relative">
                                 <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" onerror="this.onerror=null; this.src='https://placehold.co/800x600/0F172A/E85A24?text=Executive+Corporate+Office';" alt="Corporate Executive Boardroom" class="w-full h-full object-cover img-zoom">
@@ -634,7 +630,6 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                        <!-- STEP 1 -->
                         <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
                             <span class="text-4xl font-black text-brand-orange/25 mb-4 block">01</span>
                             <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-1-title">Needs Assessment</h3>
@@ -643,7 +638,6 @@
                             </p>
                         </div>
 
-                        <!-- STEP 2 -->
                         <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
                             <span class="text-4xl font-black text-brand-orange/25 mb-4 block">02</span>
                             <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-2-title">Targeted Sourcing</h3>
@@ -652,7 +646,6 @@
                             </p>
                         </div>
 
-                        <!-- STEP 3 -->
                         <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
                             <span class="text-4xl font-black text-brand-orange/25 mb-4 block">03</span>
                             <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-3-title">Screening & Assessment</h3>
@@ -661,7 +654,6 @@
                             </p>
                         </div>
 
-                        <!-- STEP 4 -->
                         <div class="p-6 rounded-2xl border border-slate-200 bg-brand-light relative z-10">
                             <span class="text-4xl font-black text-brand-orange/25 mb-4 block">04</span>
                             <h3 class="text-lg font-bold text-brand-navy mb-2" data-i18n="step-4-title">Presentation & Offer Support</h3>
@@ -710,7 +702,7 @@
                 </div>
             </section>
 
-            <!-- BOTTOM REVENUE CTA BANNER WITH RICH VISUAL BACKGROUND -->
+            <!-- BOTTOM REVENUE CTA BANNER -->
             <section class="py-20 relative overflow-hidden text-white">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-orange via-amber-600 to-brand-orange"></div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -734,7 +726,7 @@
         </section>
 
         <!-- ==================================================================== -->
-        <!-- VIEW 2: REQUEST TALENT (MOST IMPORTANT CONVERSION PAGE) -->
+        <!-- VIEW 2: REQUEST TALENT (EMPLOYER CONVERSION PAGE WITH JD UPLOAD) -->
         <!-- ==================================================================== -->
         <section id="view-request-talent" class="page-view hidden py-12 md:py-16 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -842,7 +834,7 @@
                                 </div>
                             </div>
 
-                            <!-- QUALIFICATION SPECIFICS -->
+                            <!-- QUALIFICATION SPECIFICS & DRAG-AND-DROP FILE UPLOAD -->
                             <div>
                                 <h3 class="text-base font-bold text-brand-navy mb-4 flex items-center gap-2">
                                     <span class="w-6 h-6 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center text-xs font-bold">3</span>
@@ -871,10 +863,47 @@
                                     </div>
                                 </div>
 
+                                <!-- DRAG & DROP JOB DESCRIPTION UPLOAD ZONE -->
+                                <div class="mb-4">
+                                    <label class="block text-xs font-bold text-brand-navy mb-1">
+                                        Upload Job Description (PDF, DOCX, DOC, TXT)
+                                    </label>
+                                    <div id="employer-dropzone" onclick="document.getElementById('req-jd-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-2xl p-6 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
+                                        <input type="file" id="req-jd-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleEmployerFileSelect(this.files)">
+                                        
+                                        <div id="employer-upload-default" class="space-y-2">
+                                            <div class="w-12 h-12 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition-transform">
+                                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                            </div>
+                                            <p class="text-xs font-bold text-brand-navy">
+                                                Drag and drop your Job Description file here, or <span class="text-brand-orange underline">Browse Files</span>
+                                            </p>
+                                            <p class="text-[11px] text-brand-muted">Supports PDF, Word (.doc, .docx), or Text files (Max 15MB)</p>
+                                        </div>
+
+                                        <div id="employer-upload-selected" class="hidden flex items-center justify-between bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-base">
+                                                    <i class="fa-solid fa-file-lines"></i>
+                                                </div>
+                                                <div class="text-left">
+                                                    <p id="employer-file-name" class="text-xs font-bold text-brand-navy truncate max-w-[220px] sm:max-w-xs"></p>
+                                                    <p id="employer-file-size" class="text-[10px] text-brand-muted"></p>
+                                                </div>
+                                            </div>
+                                            <button type="button" onclick="event.stopPropagation(); removeEmployerFile();" class="text-slate-400 hover:text-red-500 p-2 text-sm transition-colors">
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="space-y-4">
                                     <div>
-                                        <label class="block text-xs font-bold text-brand-navy mb-1" for="req-jd">Paste Job Description or Key Skill Requirements</label>
-                                        <textarea id="req-jd" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="Paste details regarding duties, required tools/equipment experience, education, etc."></textarea>
+                                        <label class="block text-xs font-bold text-brand-navy mb-1" for="req-jd">
+                                            Or Paste Job Description / Key Skill Requirements
+                                        </label>
+                                        <textarea id="req-jd" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="If not attaching a file, paste details regarding duties, required equipment experience, education, etc."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -893,10 +922,10 @@
                         </form>
                     </div>
 
-                    <!-- RIGHT COLUMN: DIRECT EMAIL & CONFIDENTIALITY SLA -->
+                    <!-- RIGHT COLUMN: DIRECT EMAIL & SLA -->
                     <div class="lg:col-span-4 space-y-6">
                         
-                        <!-- DIRECT EMAIL FALLBACK CARD -->
+                        <!-- DIRECT EMAIL CARD -->
                         <div class="bg-brand-navy text-white p-6 sm:p-8 rounded-2xl shadow-md border border-slate-800">
                             <div class="w-10 h-10 rounded-xl bg-brand-orange text-white flex items-center justify-center text-lg mb-4">
                                 <i class="fa-solid fa-envelope"></i>
@@ -914,7 +943,7 @@
                             </p>
                         </div>
 
-                        <!-- SLA / WHY WORK WITH PERSONA LINK -->
+                        <!-- SLA / COMMITMENT -->
                         <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
                             <h4 class="text-sm font-bold text-brand-navy uppercase tracking-wider">The Persona Link Commitment</h4>
                             
@@ -953,7 +982,6 @@
         <!-- VIEW 3: FOR EMPLOYERS (#employers) -->
         <!-- ==================================================================== -->
         <section id="view-employers" class="page-view hidden py-0 bg-white">
-            <!-- HERO SUBPAGE BANNER -->
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 z-0 opacity-25">
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Executive+Recruiting+Meeting';" alt="Executive Boardroom Meeting" class="w-full h-full object-cover">
@@ -970,7 +998,6 @@
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <!-- SEARCH MODELS -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     <div class="p-8 rounded-2xl border-2 border-slate-200 bg-slate-50 relative card-hover">
                         <div class="inline-block px-3 py-1 rounded bg-brand-navy text-white text-xs font-bold mb-4">PERFORMANCE SEARCH</div>
@@ -1011,7 +1038,6 @@
         <!-- VIEW 4: EXPERTISE (#expertise) -->
         <!-- ==================================================================== -->
         <section id="view-expertise" class="page-view hidden py-0 bg-slate-50">
-            <!-- HERO SUBPAGE BANNER -->
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 z-0 opacity-20">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Industrial+Architecture';" alt="Modern Technical Facility" class="w-full h-full object-cover">
@@ -1111,7 +1137,6 @@
         <!-- VIEW 5: SEMICONDUCTOR RECRUITING (#semiconductor) -->
         <!-- ==================================================================== -->
         <section id="view-semiconductor" class="page-view hidden py-0 bg-white">
-            <!-- HERO SUBPAGE BANNER WITH FAB CLEANROOM IMAGE -->
             <div class="relative bg-brand-navy text-white py-16 md:py-24 overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 z-0 opacity-30">
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Semiconductor+Cleanroom';" alt="Semiconductor Wafer Fab Cleanroom" class="w-full h-full object-cover">
@@ -1180,7 +1205,6 @@
         <!-- VIEW 6: BILINGUAL RECRUITING (#bilingual) -->
         <!-- ==================================================================== -->
         <section id="view-bilingual" class="page-view hidden py-0 bg-slate-50">
-            <!-- HERO SUBPAGE BANNER WITH GLOBAL BILINGUAL NETWORK IMAGE -->
             <div class="relative bg-brand-navy text-white py-16 md:py-24 overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 z-0 opacity-25">
                     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Global+Bilingual+Network';" alt="Global Business Communication" class="w-full h-full object-cover">
@@ -1234,7 +1258,6 @@
         <!-- VIEW 7: CANDIDATES & JOBS BOARD (#jobs) -->
         <!-- ==================================================================== -->
         <section id="view-jobs" class="page-view hidden py-0 bg-slate-50">
-            <!-- HERO SUBPAGE BANNER WITH MODERN CAREER OFFICE IMAGE -->
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 z-0 opacity-20">
                     <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Modern+Career+Office';" alt="Modern Tech Office Space" class="w-full h-full object-cover">
@@ -1249,7 +1272,6 @@
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <!-- SEARCH & FILTER BAR -->
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-8">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div>
@@ -1307,7 +1329,6 @@
         <!-- VIEW 8: ABOUT US (#about) -->
         <!-- ==================================================================== -->
         <section id="view-about" class="page-view hidden py-0 bg-white">
-            <!-- HERO SUBPAGE BANNER WITH INDUSTRIAL CORRIDOR IMAGE -->
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 z-0 opacity-20">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" onerror="this.onerror=null; this.src='https://placehold.co/1920x600/0F172A/E85A24?text=Georgia+Industrial+Hub';" alt="Georgia Corporate Headquarters" class="w-full h-full object-cover">
@@ -1351,7 +1372,6 @@
         <!-- VIEW 9: CONTACT US (#contact) -->
         <!-- ==================================================================== -->
         <section id="view-contact" class="page-view hidden py-0 bg-slate-50">
-            <!-- HERO SUBPAGE BANNER -->
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 z-0 opacity-20">
                     <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="Corporate Headquarters Office" class="w-full h-full object-cover">
@@ -1448,7 +1468,7 @@
 
     </main>
 
-    <!-- CANDIDATE RESUME MODAL -->
+    <!-- CANDIDATE RESUME MODAL (WITH ENHANCED DRAG-AND-DROP UPLOAD ZONE) -->
     <div id="candidate-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white max-w-lg w-full rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative">
             <div class="bg-brand-navy text-white p-6 flex justify-between items-center">
@@ -1476,10 +1496,40 @@
                         <option value="Corporate / HR / Accounting">Corporate / HR / Accounting</option>
                     </select>
                 </div>
+
+                <!-- DRAG & DROP RESUME UPLOAD -->
                 <div>
-                    <label class="block text-xs font-bold text-brand-navy mb-1">Attach Resume File (PDF, DOC, DOCX)</label>
-                    <input type="file" id="cand-file" accept=".pdf,.doc,.docx" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs text-slate-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-brand-orange-light file:text-brand-orange hover:file:bg-orange-100 cursor-pointer">
+                    <label class="block text-xs font-bold text-brand-navy mb-1">Attach Resume File (PDF, DOC, DOCX) *</label>
+                    <div id="candidate-dropzone" onclick="document.getElementById('cand-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-xl p-5 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
+                        <input type="file" id="cand-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleCandidateFileSelect(this.files)">
+                        
+                        <div id="candidate-upload-default" class="space-y-1">
+                            <div class="w-10 h-10 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-lg group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+                            <p class="text-xs font-bold text-brand-navy">
+                                Drag & drop resume here, or <span class="text-brand-orange underline">Browse</span>
+                            </p>
+                            <p class="text-[10px] text-brand-muted">PDF, Word (.doc, .docx) up to 15MB</p>
+                        </div>
+
+                        <div id="candidate-upload-selected" class="hidden flex items-center justify-between bg-white p-2.5 rounded-lg border border-slate-200 shadow-sm">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-md bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm">
+                                    <i class="fa-solid fa-file-pdf"></i>
+                                </div>
+                                <div class="text-left">
+                                    <p id="cand-file-name" class="text-xs font-bold text-brand-navy truncate max-w-[180px] sm:max-w-xs"></p>
+                                    <p id="cand-file-size" class="text-[10px] text-brand-muted"></p>
+                                </div>
+                            </div>
+                            <button type="button" onclick="event.stopPropagation(); removeCandidateFile();" class="text-slate-400 hover:text-red-500 p-1.5 text-xs transition-colors">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Paste Resume Summary or Additional Notes (Optional)</label>
                     <textarea id="cand-resume-text" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Paste relevant experience, target salary, or relocation preferences..."></textarea>
@@ -1504,7 +1554,6 @@
                 <button onclick="closeDevModal()" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
 
-            <!-- TABS HEADER -->
             <div class="bg-slate-100 px-6 py-2 border-b border-slate-200 flex gap-2 overflow-x-auto text-xs font-bold text-brand-navy">
                 <button onclick="switchDevTab('headers')" id="tab-headers" class="px-3 py-1.5 rounded bg-white shadow-sm border border-slate-200">_headers</button>
                 <button onclick="switchDevTab('redirects')" id="tab-redirects" class="px-3 py-1.5 rounded text-brand-muted hover:bg-white">_redirects</button>
@@ -1515,7 +1564,6 @@
                 <button onclick="switchDevTab('checklist')" id="tab-checklist" class="px-3 py-1.5 rounded text-brand-muted hover:bg-white text-emerald-700">Owner Confirmation</button>
             </div>
 
-            <!-- CODE DISPLAY BODY -->
             <div class="p-6 flex-grow overflow-y-auto bg-slate-900 text-slate-100 font-mono text-xs leading-relaxed relative">
                 <button onclick="copyCurrentCode()" class="absolute top-4 right-4 bg-brand-orange hover:bg-brand-orange-hover text-white px-3 py-1.5 rounded text-xs font-bold font-sans">
                     <i class="fa-solid fa-copy mr-1"></i> Copy Code
@@ -1537,7 +1585,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
                 
-                <!-- FOOTER BRAND -->
                 <div class="md:col-span-5 space-y-4">
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-lg bg-brand-orange text-white flex items-center justify-center font-bold text-lg">P</div>
@@ -1552,7 +1599,6 @@
                     </div>
                 </div>
 
-                <!-- EMPLOYER LINKS -->
                 <div class="md:col-span-3 space-y-3">
                     <h4 class="text-xs font-bold text-brand-orange uppercase tracking-wider" data-i18n="footer-emp-head">For Employers</h4>
                     <ul class="text-xs text-slate-300 space-y-2">
@@ -1564,7 +1610,6 @@
                     </ul>
                 </div>
 
-                <!-- QUICK NAVIGATION -->
                 <div class="md:col-span-2 space-y-3">
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Company</h4>
                     <ul class="text-xs text-slate-300 space-y-2">
@@ -1575,7 +1620,6 @@
                     </ul>
                 </div>
 
-                <!-- DEPLOYMENT LINK -->
                 <div class="md:col-span-2 space-y-3">
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider">Deployment</h4>
                     <button onclick="openDevModal()" class="text-xs text-brand-orange hover:underline block">
@@ -1602,7 +1646,7 @@
     <script>
         
         // ====================================================================
-        // 1. SAMPLE STRUCTURED JOBS DATA (data/jobs.json compatible)
+        // 1. SAMPLE STRUCTURED JOBS DATA
         // ====================================================================
         const JOBS_DATA = [
             {
@@ -1668,7 +1712,7 @@
         ];
 
         // ====================================================================
-        // 2. BILINGUAL TRANSLATION DICTIONARY (EN | 한국어)
+        // 2. BILINGUAL TRANSLATION DICTIONARY
         // ====================================================================
         const TRANSLATIONS = {
             en: {
@@ -1823,15 +1867,104 @@
 
         let currentLang = 'en';
 
+        // Helper format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
         // ====================================================================
-        // 3. NAVIGATION ROUTER (Single Page View Switcher)
+        // FILE UPLOAD HANDLERS (DRAG & DROP + INPUT)
+        // ====================================================================
+        
+        // Employer JD File
+        let selectedEmployerFile = null;
+
+        function handleEmployerFileSelect(files) {
+            if (files && files.length > 0) {
+                selectedEmployerFile = files[0];
+                document.getElementById('employer-upload-default').classList.add('hidden');
+                document.getElementById('employer-upload-selected').classList.remove('hidden');
+                document.getElementById('employer-file-name').innerText = selectedEmployerFile.name;
+                document.getElementById('employer-file-size').innerText = formatFileSize(selectedEmployerFile.size);
+            }
+        }
+
+        function removeEmployerFile() {
+            selectedEmployerFile = null;
+            document.getElementById('req-jd-file').value = '';
+            document.getElementById('employer-upload-selected').classList.add('hidden');
+            document.getElementById('employer-upload-default').classList.remove('hidden');
+        }
+
+        // Candidate Resume File
+        let selectedCandidateFile = null;
+
+        function handleCandidateFileSelect(files) {
+            if (files && files.length > 0) {
+                selectedCandidateFile = files[0];
+                document.getElementById('candidate-upload-default').classList.add('hidden');
+                document.getElementById('candidate-upload-selected').classList.remove('hidden');
+                document.getElementById('cand-file-name').innerText = selectedCandidateFile.name;
+                document.getElementById('cand-file-size').innerText = formatFileSize(selectedCandidateFile.size);
+            }
+        }
+
+        function removeCandidateFile() {
+            selectedCandidateFile = null;
+            document.getElementById('cand-file').value = '';
+            document.getElementById('candidate-upload-selected').classList.add('hidden');
+            document.getElementById('candidate-upload-default').classList.remove('hidden');
+        }
+
+        // Set up Drag and Drop Events on Load
+        function setupDragAndDrop() {
+            const empDropzone = document.getElementById('employer-dropzone');
+            const candDropzone = document.getElementById('candidate-dropzone');
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                empDropzone.addEventListener(eventName, preventDefaults, false);
+                candDropzone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                empDropzone.addEventListener(eventName, () => empDropzone.classList.add('dropzone-active'), false);
+                candDropzone.addEventListener(eventName, () => candDropzone.classList.add('dropzone-active'), false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                empDropzone.addEventListener(eventName, () => empDropzone.classList.remove('dropzone-active'), false);
+                candDropzone.addEventListener(eventName, () => candDropzone.classList.remove('dropzone-active'), false);
+            });
+
+            empDropzone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleEmployerFileSelect(files);
+            }, false);
+
+            candDropzone.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleCandidateFileSelect(files);
+            }, false);
+        }
+
+        // ====================================================================
+        // 3. NAVIGATION ROUTER
         // ====================================================================
         function navigateTo(viewId) {
-            // Hide all views
             const views = document.querySelectorAll('.page-view');
             views.forEach(v => v.classList.add('hidden'));
 
-            // Target view
             const target = document.getElementById('view-' + viewId);
             if (target) {
                 target.classList.remove('hidden');
@@ -1840,13 +1973,11 @@
                 document.getElementById('view-404').classList.remove('hidden');
             }
 
-            // Update Nav active styling
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => link.classList.remove('active-nav'));
             const activeNav = document.getElementById('nav-' + viewId);
             if (activeNav) activeNav.classList.add('active-nav');
 
-            // Render jobs if navigating to jobs view
             if (viewId === 'jobs') {
                 renderJobs(JOBS_DATA);
             }
@@ -1857,7 +1988,6 @@
             menu.classList.toggle('hidden');
         }
 
-        // Handle quick industry selection from Hero
         function selectQuickIndustry(industryName) {
             navigateTo('request-talent');
             setTimeout(() => {
@@ -1972,8 +2102,8 @@
             const industry = document.getElementById('req-industry').value;
             const urgency = document.getElementById('req-urgency').value;
             const jd = document.getElementById('req-jd').value;
+            const fileName = selectedEmployerFile ? selectedEmployerFile.name : "None attached (Text provided)";
 
-            // Generate payload overview for user
             const summary = `
 Persona Link Employer Hiring Request Submitted:
 ----------------------------------------------
@@ -1981,11 +2111,11 @@ Company: ${company}
 Contact: ${contact} (${email}, ${phone})
 Role Needed: ${title} (${industry})
 Urgency: ${urgency}
-Job Details: ${jd}
+Attached JD File: ${fileName}
+Job Details / Notes: ${jd}
 ----------------------------------------------
             `;
 
-            // Display confirmation modal
             showSubmissionConfirmation("Hiring Request Submitted!", "Thank you, " + contact + ". A senior Persona Link recruiter will review your requirements for " + title + " and contact you within 24 business hours.", summary);
         }
 
@@ -1995,14 +2125,12 @@ Job Details: ${jd}
             const email = document.getElementById('cand-email').value;
             const specialty = document.getElementById('cand-specialty').value;
             const notes = document.getElementById('cand-resume-text').value;
-            const fileInput = document.getElementById('cand-file');
-            const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file attached";
+            const fileName = selectedCandidateFile ? selectedCandidateFile.name : "No file attached";
 
             closeCandidateModal();
 
-            // Prepare mailto fallback link for direct submission to annie@personalink.me
             const subject = encodeURIComponent(`Candidate Application: ${name} - ${specialty}`);
-            const body = encodeURIComponent(`Candidate Submission:\nName: ${name}\nEmail: ${email}\nSpecialty: ${specialty}\nAttached File: ${fileName}\n\nNotes / Summary:\n${notes}`);
+            const body = encodeURIComponent(`Candidate Submission:\nName: ${name}\nEmail: ${email}\nSpecialty: ${specialty}\nAttached Resume: ${fileName}\n\nNotes / Summary:\n${notes}`);
             const mailtoUrl = `mailto:annie@personalink.me?subject=${subject}&body=${body}`;
 
             showSubmissionConfirmation(
@@ -2011,7 +2139,6 @@ Job Details: ${jd}
                 `Candidate Submission Details:\nName: ${name}\nEmail: ${email}\nSpecialty: ${specialty}\nFile: ${fileName}\n\nNotes:\n${notes}`
             );
 
-            // Trigger mailto link after slight delay
             setTimeout(() => {
                 window.location.href = mailtoUrl;
             }, 800);
@@ -2178,7 +2305,8 @@ ITEMS REQUIRING OWNER CONFIRMATION (BUSINESS COMPLIANCE)
         // 8. INITIALIZATION ON WINDOW LOAD
         // ====================================================================
         window.onload = function() {
-            // Handle URL Hash navigation
+            setupDragAndDrop();
+
             const hash = window.location.hash.replace('#', '');
             if (hash) {
                 navigateTo(hash);
