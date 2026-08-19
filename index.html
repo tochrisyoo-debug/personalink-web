@@ -144,9 +144,6 @@
                     <i class="fa-solid fa-globe text-brand-orange"></i>
                     <span id="lang-toggle-text">EN | 한국어</span>
                 </button>
-                <button onclick="openDevModal()" class="text-slate-400 hover:text-white transition-colors text-xs flex items-center gap-1">
-                    <i class="fa-solid fa-code"></i> <span class="hidden md:inline">Deployment & Files</span>
-                </button>
             </div>
         </div>
     </div>
@@ -210,11 +207,6 @@
             <a href="#jobs" onclick="navigateTo('jobs'); toggleMobileMenu();" class="block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="nav-jobs">Careers / Job Board</a>
             <a href="#about" onclick="navigateTo('about'); toggleMobileMenu();" class="block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="nav-about">About Persona Link</a>
             <a href="#contact" onclick="navigateTo('contact'); toggleMobileMenu();" class="block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="nav-contact">Contact Us</a>
-            <div class="pt-2 border-t border-slate-800 flex flex-col gap-2">
-                <button onclick="switchLanguage(); toggleMobileMenu();" class="w-full text-left py-2 text-slate-300 font-semibold text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-globe text-brand-orange"></i> Switch Language (EN / 한국어)
-                </button>
-            </div>
         </div>
     </header>
 
@@ -354,7 +346,7 @@
         </section>
 
         <!-- ==================================================================== -->
-        <!-- VIEW 2: REQUEST TALENT (EMPLOYER CONVERSION PAGE WITH AUTOMATIC EMAIL) -->
+        <!-- VIEW 2: REQUEST TALENT (REAL MULTIPART FILE ATTACHMENT FORM) -->
         <!-- ==================================================================== -->
         <section id="view-request-talent" class="page-view hidden py-12 md:py-16 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -365,15 +357,22 @@
                         Tell Us What You're Hiring For
                     </h1>
                     <p class="text-base text-brand-muted mt-3" data-i18n="req-sub">
-                        We'll review your hiring requirements immediately and contact you to discuss a tailored search strategy. Submit as much or as little detail as you currently have.
+                        We'll review your hiring requirements immediately and contact you to discuss a tailored search strategy.
                     </p>
                 </div>
+
+                <!-- HIDDEN IFRAME FOR BACKGROUND FORM SUBMISSION WITH FILE ATTACHMENTS -->
+                <iframe name="employer_hidden_iframe" id="employer_hidden_iframe" style="display:none;" onload="onEmployerFormIframeLoad()"></iframe>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     
                     <div class="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-md">
-                        <form id="talent-request-form" onsubmit="handleTalentRequestSubmit(event)" class="space-y-6">
+                        <form id="talent-request-form" target="employer_hidden_iframe" action="https://formsubmit.co/annie@personalink.me" method="POST" enctype="multipart/form-data" onsubmit="handleEmployerFormSubmit()" class="space-y-6">
                             
+                            <input type="hidden" name="_subject" id="req-form-subject" value="[Persona Link Request] Employer Hiring Inquiry">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+
                             <div class="border-b border-slate-200 pb-6">
                                 <h3 class="text-base font-bold text-brand-navy mb-4 flex items-center gap-2">
                                     <span class="w-6 h-6 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center text-xs font-bold">1</span>
@@ -383,19 +382,19 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-company">Company Name *</label>
-                                        <input type="text" id="req-company" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Global Tech Manufacturing">
+                                        <input type="text" name="Company Name" id="req-company" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Global Tech Manufacturing">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-contact">Contact Name *</label>
-                                        <input type="text" id="req-contact" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Jane Doe">
+                                        <input type="text" name="Contact Name" id="req-contact" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Jane Doe">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-email">Business Email *</label>
-                                        <input type="email" id="req-email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="jdoe@company.com">
+                                        <input type="email" name="Business Email" id="req-email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="jdoe@company.com">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-phone">Phone Number</label>
-                                        <input type="tel" id="req-phone" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="(909) 802-4648">
+                                        <input type="tel" name="Phone Number" id="req-phone" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="(909) 802-4648">
                                     </div>
                                 </div>
                             </div>
@@ -409,12 +408,12 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-title">Job Title Needed *</label>
-                                        <input type="text" id="req-title" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Semiconductor Field Service Engineer">
+                                        <input type="text" name="Job Title Needed" id="req-title" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Semiconductor Field Service Engineer">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-industry">Industry Category</label>
-                                        <select id="req-industry" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select name="Industry Category" id="req-industry" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Semiconductor & Equipment">Semiconductor & Equipment</option>
                                             <option value="Engineering & Manufacturing">Engineering & Manufacturing</option>
                                             <option value="Automotive & EV Battery">Automotive & EV Battery</option>
@@ -428,7 +427,7 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-openings">Number of Openings</label>
-                                        <select id="req-openings" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select name="Number of Openings" id="req-openings" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="1 Position">1 Position</option>
                                             <option value="2-5 Positions">2-5 Positions</option>
                                             <option value="5-10 Positions">5-10 Positions</option>
@@ -438,17 +437,17 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-location">Job Location (City, State / Remote)</label>
-                                        <input type="text" id="req-location" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., Atlanta, GA or Austin, TX">
+                                        <input type="text" name="Job Location" id="req-location" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., Atlanta, GA or Austin, TX">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-salary">Target Salary Range</label>
-                                        <input type="text" id="req-salary" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="$90,000 - $120,000">
+                                        <input type="text" name="Target Salary Range" id="req-salary" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="$90,000 - $120,000">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-urgency">Hiring Urgency</label>
-                                        <select id="req-urgency" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select name="Hiring Urgency" id="req-urgency" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Immediate (Critical Vacancy)">Immediate (Critical Vacancy)</option>
                                             <option value="Within 30 Days">Within 30 Days</option>
                                             <option value="Within 60-90 Days">Within 60-90 Days</option>
@@ -467,7 +466,7 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-bilingual">Bilingual Requirement?</label>
-                                        <select id="req-bilingual" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select name="Bilingual Requirement" id="req-bilingual" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Not Required">Not Required (English Only)</option>
                                             <option value="Korean-English Bilingual Preferred">Korean-English Bilingual Preferred</option>
                                             <option value="Korean-English Bilingual Required">Korean-English Bilingual Required</option>
@@ -477,7 +476,7 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-sponsorship">Work Authorization Requirement</label>
-                                        <select id="req-sponsorship" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select name="Work Authorization" id="req-sponsorship" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="U.S. Citizens / Green Card Only">U.S. Citizens / Green Card Only</option>
                                             <option value="Open to STEM OPT / F-1 Students (3-Year Auth)">Open to STEM OPT / F-1 Students (3-Year Auth)</option>
                                             <option value="Open to Visa Sponsorship (H-1B, E-2, etc.)">Open to Visa Sponsorship (H-1B, E-2, etc.)</option>
@@ -488,10 +487,10 @@
 
                                 <div class="mb-4">
                                     <label class="block text-xs font-bold text-brand-navy mb-1">
-                                        Upload Job Description (PDF, DOCX, DOC, TXT)
+                                        Upload Job Description File (PDF, DOCX, DOC, TXT)
                                     </label>
                                     <div id="employer-dropzone" onclick="document.getElementById('req-jd-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-2xl p-6 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
-                                        <input type="file" id="req-jd-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleEmployerFileSelect(this.files)">
+                                        <input type="file" name="Attached_Job_Description" id="req-jd-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleEmployerFileSelect(this.files)">
                                         
                                         <div id="employer-upload-default" class="space-y-2">
                                             <div class="w-12 h-12 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition-transform">
@@ -525,18 +524,18 @@
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-jd">
                                             Or Paste Job Description / Key Skill Requirements
                                         </label>
-                                        <textarea id="req-jd" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="If not attaching a file, paste details regarding duties, required equipment experience, education, etc."></textarea>
+                                        <textarea name="Job Details / Notes" id="req-jd" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="If not attaching a file, paste details regarding duties, required equipment experience, education, etc."></textarea>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="pt-4">
-                                <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-4 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2">
+                                <button type="submit" id="emp-submit-btn" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-4 rounded-xl font-bold text-base shadow-lg transition-all flex items-center justify-center gap-2">
                                     <i class="fa-solid fa-paper-plane"></i>
                                     <span>SUBMIT HIRING INQUIRY</span>
                                 </button>
                                 <p class="text-center text-xs text-brand-muted mt-2">
-                                    Confidential submission. Your request will be automatically delivered to annie@personalink.me.
+                                    Confidential submission. Your request with attached files will be automatically delivered to annie@personalink.me.
                                 </p>
                             </div>
 
@@ -554,7 +553,7 @@
                             </p>
                             <a id="direct-email-btn" href="mailto:annie@personalink.me?subject=Hiring%20Inquiry%20-%20Persona%20Link" class="w-full bg-white text-brand-navy hover:bg-slate-100 py-3 px-4 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                <span id="email-display-label">Email: annie@personalink.me</span>
+                                <span>Email: annie@personalink.me</span>
                             </a>
                             <p class="text-[11px] text-slate-400 mt-3 text-center">
                                 Direct Destination: <code class="bg-slate-800 px-1 py-0.5 rounded text-amber-300">annie@personalink.me</code>
@@ -595,6 +594,9 @@
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 3: FOR EMPLOYERS (#employers) -->
+        <!-- ==================================================================== -->
         <section id="view-employers" class="page-view hidden py-0 bg-white">
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -631,6 +633,9 @@
             </div>
         </section>
 
+        <!-- ==================================================================== -->
+        <!-- VIEW 4: CONTACT US (#contact) -->
+        <!-- ==================================================================== -->
         <section id="view-contact" class="page-view hidden py-0 bg-slate-50">
             <div class="relative bg-brand-navy text-white py-16 md:py-20 overflow-hidden border-b border-slate-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -641,6 +646,8 @@
                     </p>
                 </div>
             </div>
+
+            <iframe name="contact_hidden_iframe" id="contact_hidden_iframe" style="display:none;" onload="onContactFormIframeLoad()"></iframe>
 
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-md grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -665,20 +672,24 @@
                     </div>
 
                     <div>
-                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <form target="contact_hidden_iframe" action="https://formsubmit.co/annie@personalink.me" method="POST" onsubmit="handleContactFormSubmit()" class="space-y-4">
+                            <input type="hidden" name="_subject" value="[Persona Link Website] General Contact Message">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Your Name *</label>
-                                <input type="text" id="contact-name" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                                <input type="text" name="Sender Name" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Business Email *</label>
-                                <input type="email" id="contact-email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                                <input type="email" name="Sender Email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Message *</label>
-                                <textarea id="contact-message" rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange"></textarea>
+                                <textarea name="Message" rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-brand-navy text-white py-3 rounded-xl text-xs font-bold hover:bg-brand-slate transition-all shadow-md">
+                            <button type="submit" id="contact-submit-btn" class="w-full bg-brand-navy text-white py-3 rounded-xl text-xs font-bold hover:bg-brand-slate transition-all shadow-md">
                                 Send Message
                             </button>
                         </form>
@@ -689,6 +700,7 @@
 
     </main>
 
+    <!-- CANDIDATE RESUME MODAL (REAL MULTIPART RESUME FILE ATTACHMENT) -->
     <div id="candidate-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white max-w-lg w-full rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative">
             <div class="bg-brand-navy text-white p-6 flex justify-between items-center">
@@ -696,18 +708,24 @@
                 <button onclick="closeCandidateModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
             </div>
             
-            <form onsubmit="handleCandidateResumeSubmit(event)" class="p-6 space-y-4">
+            <iframe name="cand_hidden_iframe" id="cand_hidden_iframe" style="display:none;" onload="onCandFormIframeLoad()"></iframe>
+
+            <form target="cand_hidden_iframe" action="https://formsubmit.co/annie@personalink.me" method="POST" enctype="multipart/form-data" onsubmit="handleCandidateFormSubmit()" class="p-6 space-y-4">
+                <input type="hidden" name="_subject" id="cand-form-subject" value="[Persona Link Candidate] Resume Submission">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Full Name *</label>
-                    <input type="text" id="cand-name" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                    <input type="text" name="Candidate Name" id="cand-name" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Email Address *</label>
-                    <input type="email" id="cand-email" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                    <input type="email" name="Candidate Email" id="cand-email" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Primary Specialty / Industry</label>
-                    <select id="cand-specialty" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none bg-white">
+                    <select name="Primary Specialty" id="cand-specialty" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none bg-white">
                         <option value="Semiconductor Equipment / Field Service">Semiconductor Equipment / Field Service</option>
                         <option value="Engineering & Manufacturing">Engineering & Manufacturing</option>
                         <option value="Automotive / EV Battery">Automotive / EV Battery</option>
@@ -720,7 +738,7 @@
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Attach Resume File (PDF, DOC, DOCX) *</label>
                     <div id="candidate-dropzone" onclick="document.getElementById('cand-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-xl p-5 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
-                        <input type="file" id="cand-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleCandidateFileSelect(this.files)">
+                        <input type="file" name="Attached_Resume_File" id="cand-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleCandidateFileSelect(this.files)">
                         
                         <div id="candidate-upload-default" class="space-y-1">
                             <div class="w-10 h-10 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-lg group-hover:scale-110 transition-transform">
@@ -751,9 +769,9 @@
 
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Paste Resume Summary or Additional Notes (Optional)</label>
-                    <textarea id="cand-resume-text" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Paste relevant experience, target salary, or relocation preferences..."></textarea>
+                    <textarea name="Resume Notes / Summary" id="cand-resume-text" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Paste relevant experience, target salary, or relocation preferences..."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-3 rounded-xl font-bold text-xs shadow transition-all flex items-center justify-center gap-2">
+                <button type="submit" id="cand-submit-btn" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-3 rounded-xl font-bold text-xs shadow transition-all flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i>
                     <span>SUBMIT RESUME TO RECRUITER</span>
                 </button>
@@ -761,6 +779,7 @@
         </div>
     </div>
 
+    <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
         
         // Helper format file size
@@ -825,12 +844,19 @@
             }
         }
 
-        // File Selection Handlers
+        // File Selection Handlers with DataTransfer object sync for real multipart form post
         let selectedEmployerFile = null;
 
         function handleEmployerFileSelect(files) {
             if (files && files.length > 0) {
                 selectedEmployerFile = files[0];
+
+                // Sync with actual HTML file input so binary file sends with form submission
+                const fileInput = document.getElementById('req-jd-file');
+                const dt = new DataTransfer();
+                dt.items.add(files[0]);
+                fileInput.files = dt.files;
+
                 document.getElementById('employer-upload-default').classList.add('hidden');
                 document.getElementById('employer-upload-selected').classList.remove('hidden');
                 document.getElementById('employer-file-name').innerText = selectedEmployerFile.name;
@@ -840,7 +866,8 @@
 
         function removeEmployerFile() {
             selectedEmployerFile = null;
-            document.getElementById('req-jd-file').value = '';
+            const fileInput = document.getElementById('req-jd-file');
+            fileInput.value = '';
             document.getElementById('employer-upload-selected').classList.add('hidden');
             document.getElementById('employer-upload-default').classList.remove('hidden');
         }
@@ -850,6 +877,12 @@
         function handleCandidateFileSelect(files) {
             if (files && files.length > 0) {
                 selectedCandidateFile = files[0];
+
+                const fileInput = document.getElementById('cand-file');
+                const dt = new DataTransfer();
+                dt.items.add(files[0]);
+                fileInput.files = dt.files;
+
                 document.getElementById('candidate-upload-default').classList.add('hidden');
                 document.getElementById('candidate-upload-selected').classList.remove('hidden');
                 document.getElementById('cand-file-name').innerText = selectedCandidateFile.name;
@@ -859,7 +892,8 @@
 
         function removeCandidateFile() {
             selectedCandidateFile = null;
-            document.getElementById('cand-file').value = '';
+            const fileInput = document.getElementById('cand-file');
+            fileInput.value = '';
             document.getElementById('candidate-upload-selected').classList.add('hidden');
             document.getElementById('candidate-upload-default').classList.remove('hidden');
         }
@@ -902,183 +936,96 @@
         }
 
         // ====================================================================
-        // AUTOMATED BACKEND EMAIL SUBMISSION (FORMSUBMIT.CO API)
+        // BACKGROUND FORM SUBMISSION TRRIGGERS WITH REAL ATTACHMENTS
         // ====================================================================
+        let employerFormSubmitted = false;
+        let candidateFormSubmitted = false;
+        let contactFormSubmitted = false;
 
-        // 1. Employer Talent Request Form
-        async function handleTalentRequestSubmit(e) {
-            e.preventDefault();
-            
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Sending Request to Recruiter...</span>`;
-
+        function handleEmployerFormSubmit() {
             const company = document.getElementById('req-company').value;
-            const contact = document.getElementById('req-contact').value;
-            const email = document.getElementById('req-email').value;
-            const phone = document.getElementById('req-phone').value;
             const title = document.getElementById('req-title').value;
+            document.getElementById('req-form-subject').value = `[Persona Link Request] ${company} - ${title}`;
 
-            const formData = new FormData();
-            formData.append("Company Name", company);
-            formData.append("Contact Name", contact);
-            formData.append("Business Email", email);
-            formData.append("Phone Number", phone);
-            formData.append("Job Title Needed", title);
-            formData.append("Industry Category", document.getElementById('req-industry').value);
-            formData.append("Number of Openings", document.getElementById('req-openings').value);
-            formData.append("Job Location", document.getElementById('req-location').value);
-            formData.append("Target Salary Range", document.getElementById('req-salary').value);
-            formData.append("Hiring Urgency", document.getElementById('req-urgency').value);
-            formData.append("Bilingual Requirement", document.getElementById('req-bilingual').value);
-            formData.append("Work Authorization", document.getElementById('req-sponsorship').value);
-            formData.append("Job Details / Notes", document.getElementById('req-jd').value);
+            const btn = document.getElementById('emp-submit-btn');
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Transmitting Request & Files...</span>`;
+            
+            employerFormSubmitted = true;
+        }
 
-            if (selectedEmployerFile) {
-                formData.append("Attachment_JobDescription", selectedEmployerFile);
-            }
+        function onEmployerFormIframeLoad() {
+            if (employerFormSubmitted) {
+                employerFormSubmitted = false;
+                const contact = document.getElementById('req-contact').value;
+                const title = document.getElementById('req-title').value;
 
-            formData.append("_subject", `[Persona Link Request] ${company} - ${title}`);
-            formData.append("_template", "table");
-            formData.append("_captcha", "false");
-
-            try {
-                const response = await fetch("https://formsubmit.co/ajax/annie@personalink.me", {
-                    method: "POST",
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    showSubmissionConfirmation(
-                        "Hiring Request Received!",
-                        `Thank you, ${contact}. Your request for "${title}" has been sent directly to annie@personalink.me. A senior recruiter will review your requirements and reach out within 24 business hours.`,
-                        ""
-                    );
-                    e.target.reset();
-                    removeEmployerFile();
-                } else {
-                    throw new Error("Submission failed");
-                }
-            } catch (err) {
                 showSubmissionConfirmation(
-                    "Submission Received",
-                    `Thank you, ${contact}. Your request has been logged. If you did not receive immediate email confirmation, please feel free to email annie@personalink.me directly.`,
+                    "Hiring Request Received with Attachments!",
+                    `Thank you, ${contact}. Your request for "${title}" along with any attached Job Description files has been transmitted directly to annie@personalink.me. A senior recruiter will review your specifications shortly.`,
                     ""
                 );
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
+
+                document.getElementById('talent-request-form').reset();
+                removeEmployerFile();
+                
+                const btn = document.getElementById('emp-submit-btn');
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> <span>SUBMIT HIRING INQUIRY</span>`;
             }
         }
 
-        // 2. Candidate Resume Form
-        async function handleCandidateResumeSubmit(e) {
-            e.preventDefault();
-
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Submitting Resume...</span>`;
-
+        function handleCandidateFormSubmit() {
             const name = document.getElementById('cand-name').value;
-            const email = document.getElementById('cand-email').value;
             const specialty = document.getElementById('cand-specialty').value;
+            document.getElementById('cand-form-subject').value = `[Persona Link Candidate] Resume: ${name} - ${specialty}`;
 
-            const formData = new FormData();
-            formData.append("Candidate Name", name);
-            formData.append("Candidate Email", email);
-            formData.append("Primary Specialty", specialty);
-            formData.append("Resume Notes / Summary", document.getElementById('cand-resume-text').value);
+            const btn = document.getElementById('cand-submit-btn');
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Transmitting Resume...</span>`;
 
-            if (selectedCandidateFile) {
-                formData.append("Attachment_Resume", selectedCandidateFile);
-            }
+            candidateFormSubmitted = true;
+        }
 
-            formData.append("_subject", `[Persona Link Candidate] Resume: ${name} - ${specialty}`);
-            formData.append("_template", "table");
-            formData.append("_captcha", "false");
+        function onCandFormIframeLoad() {
+            if (candidateFormSubmitted) {
+                candidateFormSubmitted = false;
+                const name = document.getElementById('cand-name').value;
 
-            try {
-                const response = await fetch("https://formsubmit.co/ajax/annie@personalink.me", {
-                    method: "POST",
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                closeCandidateModal();
-
-                if (response.ok) {
-                    showSubmissionConfirmation(
-                        "Resume Submitted Successfully!",
-                        `Thank you, ${name}. Your candidate profile and resume file have been transmitted to annie@personalink.me. Our recruiting team will review your qualifications for open roles.`,
-                        ""
-                    );
-                    e.target.reset();
-                    removeCandidateFile();
-                } else {
-                    throw new Error("Resume submission failed");
-                }
-            } catch (err) {
                 closeCandidateModal();
                 showSubmissionConfirmation(
-                    "Resume Submission Received",
-                    `Thank you, ${name}. Your submission has been processed. You can also send your resume file directly to annie@personalink.me anytime.`,
+                    "Resume File Submitted Successfully!",
+                    `Thank you, ${name}. Your candidate profile and resume file have been attached and delivered to annie@personalink.me. Our team will review your qualifications.`,
                     ""
                 );
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
+
+                document.querySelector('#candidate-modal form').reset();
+                removeCandidateFile();
+
+                const btn = document.getElementById('cand-submit-btn');
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-paper-plane"></i> <span>SUBMIT RESUME TO RECRUITER</span>`;
             }
         }
 
-        // 3. General Contact Form
-        async function handleContactSubmit(e) {
-            e.preventDefault();
+        function handleContactFormSubmit() {
+            const btn = document.getElementById('contact-submit-btn');
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Sending...</span>`;
+            contactFormSubmitted = true;
+        }
 
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Sending...</span>`;
-
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-
-            const formData = new FormData();
-            formData.append("Sender Name", name);
-            formData.append("Sender Email", email);
-            formData.append("Message", document.getElementById('contact-message').value);
-            formData.append("_subject", `[Persona Link Website] General Contact from ${name}`);
-            formData.append("_template", "table");
-            formData.append("_captcha", "false");
-
-            try {
-                const response = await fetch("https://formsubmit.co/ajax/annie@personalink.me", {
-                    method: "POST",
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    showSubmissionConfirmation(
-                        "Message Sent!",
-                        `Thank you, ${name}. Your message has been sent to annie@personalink.me. We will get back to you shortly.`,
-                        ""
-                    );
-                    e.target.reset();
-                } else {
-                    throw new Error("Contact submission failed");
-                }
-            } catch (err) {
+        function onContactFormIframeLoad() {
+            if (contactFormSubmitted) {
+                contactFormSubmitted = false;
                 showSubmissionConfirmation(
-                    "Message Received",
-                    `Thank you, ${name}. Your message has been recorded.`,
+                    "Message Sent!",
+                    "Thank you for contacting Persona Link. Your message has been sent to annie@personalink.me.",
                     ""
                 );
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
+                const btn = document.getElementById('contact-submit-btn');
+                btn.disabled = false;
+                btn.innerHTML = "Send Message";
             }
         }
 
@@ -1101,6 +1048,16 @@
 
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function selectQuickIndustry(industryName) {
+            navigateTo('request-talent');
+            setTimeout(() => {
+                const select = document.getElementById('req-industry');
+                if (select) {
+                    select.value = industryName;
+                }
+            }, 100);
         }
 
         function openCandidateModal() {
