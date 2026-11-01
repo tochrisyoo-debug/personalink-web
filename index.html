@@ -746,8 +746,21 @@
                     
                     <!-- LEFT COLUMN: FORM -->
                     <div class="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-md">
-                        <form id="talent-request-form" onsubmit="handleTalentRequestSubmit(event)" class="space-y-6">
+                        <!-- FormSubmit 연동 및 스팸 방지 필드 적용 -->
+                        <form id="talent-request-form" action="https://formsubmit.co/annie@personalink.me" method="POST" enctype="multipart/form-data" class="space-y-6">
                             
+                            <!-- 스팸 봇 차단용 허니팟 필드 (사람에게는 보이지 않음) -->
+                            <input type="text" name="_honey" style="display:none">
+                            
+                            <!-- FormSubmit 캡차 활성화 -->
+                            <input type="hidden" name="_captcha" value="true">
+                            
+                            <!-- 메일 제목 커스텀 설정 -->
+                            <input type="hidden" name="_subject" value="[Persona Link] New Employer Hiring Request">
+                            
+                            <!-- 전송 완료 후 복귀할 주소 -->
+                            <input type="hidden" name="_next" value="https://personalink.me/#home">
+
                             <!-- COMPANY & CONTACT INFO -->
                             <div class="border-b border-slate-200 pb-6">
                                 <h3 class="text-base font-bold text-brand-navy mb-4 flex items-center gap-2">
@@ -758,19 +771,19 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-company">Company Name *</label>
-                                        <input type="text" id="req-company" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Global Tech Manufacturing">
+                                        <input type="text" id="req-company" name="Company_Name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Global Tech Manufacturing">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-contact">Contact Name *</label>
-                                        <input type="text" id="req-contact" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Jane Doe">
+                                        <input type="text" id="req-contact" name="Contact_Name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Jane Doe">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-email">Business Email *</label>
-                                        <input type="email" id="req-email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="jdoe@company.com">
+                                        <input type="email" id="req-email" name="Business_Email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="jdoe@company.com">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-phone">Phone Number</label>
-                                        <input type="tel" id="req-phone" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="(404) 555-0199">
+                                        <input type="tel" id="req-phone" name="Phone_Number" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="(404) 555-0199">
                                     </div>
                                 </div>
                             </div>
@@ -785,12 +798,12 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-title">Job Title Needed *</label>
-                                        <input type="text" id="req-title" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Semiconductor Field Service Engineer">
+                                        <input type="text" id="req-title" name="Job_Title_Needed" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 text-sm outline-none" placeholder="e.g., Semiconductor Field Service Engineer">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-industry">Industry Category</label>
-                                        <select id="req-industry" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-industry" name="Industry_Category" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Semiconductor & Equipment">Semiconductor & Equipment</option>
                                             <option value="Engineering & Manufacturing">Engineering & Manufacturing</option>
                                             <option value="Automotive & EV Battery">Automotive & EV Battery</option>
@@ -804,7 +817,7 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-openings">Number of Openings</label>
-                                        <select id="req-openings" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-openings" name="Number_of_Openings" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="1 Position">1 Position</option>
                                             <option value="2-5 Positions">2-5 Positions</option>
                                             <option value="5-10 Positions">5-10 Positions</option>
@@ -814,17 +827,17 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-location">Job Location (City, State / Remote)</label>
-                                        <input type="text" id="req-location" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., Atlanta, GA or Austin, TX">
+                                        <input type="text" id="req-location" name="Job_Location" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., Atlanta, GA or Austin, TX">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-salary">Target Salary Range</label>
-                                        <input type="text" id="req-salary" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., $90,000 - $120,000">
+                                        <input type="text" id="req-salary" name="Target_Salary_Range" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="e.g., $90,000 - $120,000">
                                     </div>
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-urgency">Hiring Urgency</label>
-                                        <select id="req-urgency" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-urgency" name="Hiring_Urgency" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Immediate (Critical Vacancy)">Immediate (Critical Vacancy)</option>
                                             <option value="Within 30 Days">Within 30 Days</option>
                                             <option value="Within 60-90 Days">Within 60-90 Days</option>
@@ -844,7 +857,7 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-bilingual">Bilingual Requirement?</label>
-                                        <select id="req-bilingual" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-bilingual" name="Bilingual_Requirement" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="Not Required">Not Required (English Only)</option>
                                             <option value="Korean-English Bilingual Preferred">Korean-English Bilingual Preferred</option>
                                             <option value="Korean-English Bilingual Required">Korean-English Bilingual Required</option>
@@ -854,7 +867,7 @@
 
                                     <div>
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-sponsorship">Work Authorization Requirement</label>
-                                        <select id="req-sponsorship" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
+                                        <select id="req-sponsorship" name="Work_Authorization" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none bg-white">
                                             <option value="U.S. Citizens / Green Card Only">U.S. Citizens / Green Card Only</option>
                                             <option value="Open to STEM OPT / F-1 Students (3-Year Auth)">Open to STEM OPT / F-1 Students (3-Year Auth)</option>
                                             <option value="Open to Visa Sponsorship (H-1B, E-2, etc.)">Open to Visa Sponsorship (H-1B, E-2, etc.)</option>
@@ -869,7 +882,7 @@
                                         Upload Job Description (PDF, DOCX, DOC, TXT)
                                     </label>
                                     <div id="employer-dropzone" onclick="document.getElementById('req-jd-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-2xl p-6 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
-                                        <input type="file" id="req-jd-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleEmployerFileSelect(this.files)">
+                                        <input type="file" id="req-jd-file" name="Attached_Job_Description" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleEmployerFileSelect(this.files)">
                                         
                                         <div id="employer-upload-default" class="space-y-2">
                                             <div class="w-12 h-12 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-xl group-hover:scale-110 transition-transform">
@@ -903,7 +916,7 @@
                                         <label class="block text-xs font-bold text-brand-navy mb-1" for="req-jd">
                                             Or Paste Job Description / Key Skill Requirements
                                         </label>
-                                        <textarea id="req-jd" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="If not attaching a file, paste details regarding duties, required equipment experience, education, etc."></textarea>
+                                        <textarea id="req-jd" name="Job_Details_Notes" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-orange text-sm outline-none" placeholder="If not attaching a file, paste details regarding duties, required equipment experience, education, etc."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -1416,18 +1429,23 @@
                     </div>
 
                     <div>
-                        <form onsubmit="showSubmissionConfirmation('Contact Submitted', 'Thank you for contacting Persona Link. A representative will reach out to you shortly.', ''); return false;" class="space-y-4">
+                        <form action="https://formsubmit.co/annie@personalink.me" method="POST" class="space-y-4">
+                            <input type="text" name="_honey" style="display:none">
+                            <input type="hidden" name="_captcha" value="true">
+                            <input type="hidden" name="_subject" value="[Persona Link] General Contact Inquiry">
+                            <input type="hidden" name="_next" value="https://personalink.me/#contact">
+
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Your Name *</label>
-                                <input type="text" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                                <input type="text" name="Sender_Name" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Business Email *</label>
-                                <input type="email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                                <input type="email" name="Sender_Email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-brand-navy mb-1">Message *</label>
-                                <textarea rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange"></textarea>
+                                <textarea name="Message_Content" rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs outline-none focus:border-brand-orange"></textarea>
                             </div>
                             <button type="submit" class="w-full bg-brand-navy text-white py-3 rounded-xl text-xs font-bold hover:bg-brand-slate transition-all shadow-md">
                                 Send Message
@@ -1476,18 +1494,23 @@
                 <button onclick="closeCandidateModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
             </div>
             
-            <form onsubmit="handleCandidateResumeSubmit(event)" class="p-6 space-y-4">
+            <form action="https://formsubmit.co/annie@personalink.me" method="POST" enctype="multipart/form-data" class="p-6 space-y-4">
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_subject" value="[Persona Link] New Candidate Resume Application">
+                <input type="hidden" name="_next" value="https://personalink.me/#jobs">
+
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Full Name *</label>
-                    <input type="text" id="cand-name" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                    <input type="text" id="cand-name" name="Candidate_Name" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Email Address *</label>
-                    <input type="email" id="cand-email" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                    <input type="email" id="cand-email" name="Candidate_Email" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Primary Specialty / Industry</label>
-                    <select id="cand-specialty" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none bg-white">
+                    <select id="cand-specialty" name="Candidate_Specialty" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none bg-white">
                         <option value="Semiconductor Equipment / Field Service">Semiconductor Equipment / Field Service</option>
                         <option value="Engineering & Manufacturing">Engineering & Manufacturing</option>
                         <option value="Automotive / EV Battery">Automotive / EV Battery</option>
@@ -1501,7 +1524,7 @@
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Attach Resume File (PDF, DOC, DOCX) *</label>
                     <div id="candidate-dropzone" onclick="document.getElementById('cand-file').click()" class="border-2 border-dashed border-slate-300 hover:border-brand-orange rounded-xl p-5 text-center cursor-pointer transition-all bg-slate-50 hover:bg-brand-orange-light/30 group">
-                        <input type="file" id="cand-file" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleCandidateFileSelect(this.files)">
+                        <input type="file" id="cand-file" name="Candidate_Resume_File" accept=".pdf,.doc,.docx,.txt" class="hidden" onchange="handleCandidateFileSelect(this.files)" required>
                         
                         <div id="candidate-upload-default" class="space-y-1">
                             <div class="w-10 h-10 rounded-full bg-brand-orange-light text-brand-orange flex items-center justify-center mx-auto text-lg group-hover:scale-110 transition-transform">
@@ -1532,7 +1555,7 @@
 
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Paste Resume Summary or Additional Notes (Optional)</label>
-                    <textarea id="cand-resume-text" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Paste relevant experience, target salary, or relocation preferences..."></textarea>
+                    <textarea id="cand-resume-text" name="Candidate_Notes" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Paste relevant experience, target salary, or relocation preferences..."></textarea>
                 </div>
                 <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-3 rounded-xl font-bold text-xs shadow transition-all flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i>
@@ -1645,9 +1668,7 @@
     <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
         
-        // ====================================================================
         // 1. SAMPLE STRUCTURED JOBS DATA
-        // ====================================================================
         const JOBS_DATA = [
             {
                 id: "JOB-101",
@@ -1711,9 +1732,7 @@
             }
         ];
 
-        // ====================================================================
         // 2. BILINGUAL TRANSLATION DICTIONARY
-        // ====================================================================
         const TRANSLATIONS = {
             en: {
                 "topbar-msg": "Need critical talent in Engineering, Semiconductor, or Manufacturing?",
@@ -1879,8 +1898,6 @@
         // ====================================================================
         // FILE UPLOAD HANDLERS (DRAG & DROP + INPUT)
         // ====================================================================
-        
-        // Employer JD File
         let selectedEmployerFile = null;
 
         function handleEmployerFileSelect(files) {
@@ -1900,7 +1917,6 @@
             document.getElementById('employer-upload-default').classList.remove('hidden');
         }
 
-        // Candidate Resume File
         let selectedCandidateFile = null;
 
         function handleCandidateFileSelect(files) {
@@ -1920,14 +1936,13 @@
             document.getElementById('candidate-upload-default').classList.remove('hidden');
         }
 
-        // Set up Drag and Drop Events on Load
         function setupDragAndDrop() {
             const empDropzone = document.getElementById('employer-dropzone');
             const candDropzone = document.getElementById('candidate-dropzone');
 
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                empDropzone.addEventListener(eventName, preventDefaults, false);
-                candDropzone.addEventListener(eventName, preventDefaults, false);
+                if (empDropzone) empDropzone.addEventListener(eventName, preventDefaults, false);
+                if (candDropzone) candDropzone.addEventListener(eventName, preventDefaults, false);
             });
 
             function preventDefaults(e) {
@@ -1935,31 +1950,41 @@
                 e.stopPropagation();
             }
 
-            ['dragenter', 'dragover'].forEach(eventName => {
-                empDropzone.addEventListener(eventName, () => empDropzone.classList.add('dropzone-active'), false);
-                candDropzone.addEventListener(eventName, () => candDropzone.classList.add('dropzone-active'), false);
-            });
+            if (empDropzone) {
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    empDropzone.addEventListener(eventName, () => empDropzone.classList.add('dropzone-active'), false);
+                });
+                ['dragleave', 'drop'].forEach(eventName => {
+                    empDropzone.addEventListener(eventName, () => empDropzone.classList.remove('dropzone-active'), false);
+                });
+                empDropzone.addEventListener('drop', (e) => {
+                    const dt = e.dataTransfer;
+                    const files = dt.files;
+                    const fileInput = document.getElementById('req-jd-file');
+                    fileInput.files = files;
+                    handleEmployerFileSelect(files);
+                }, false);
+            }
 
-            ['dragleave', 'drop'].forEach(eventName => {
-                empDropzone.addEventListener(eventName, () => empDropzone.classList.remove('dropzone-active'), false);
-                candDropzone.addEventListener(eventName, () => candDropzone.classList.remove('dropzone-active'), false);
-            });
-
-            empDropzone.addEventListener('drop', (e) => {
-                const dt = e.dataTransfer;
-                const files = dt.files;
-                handleEmployerFileSelect(files);
-            }, false);
-
-            candDropzone.addEventListener('drop', (e) => {
-                const dt = e.dataTransfer;
-                const files = dt.files;
-                handleCandidateFileSelect(files);
-            }, false);
+            if (candDropzone) {
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    candDropzone.addEventListener(eventName, () => candDropzone.classList.add('dropzone-active'), false);
+                });
+                ['dragleave', 'drop'].forEach(eventName => {
+                    candDropzone.addEventListener(eventName, () => candDropzone.classList.remove('dropzone-active'), false);
+                });
+                candDropzone.addEventListener('drop', (e) => {
+                    const dt = e.dataTransfer;
+                    const files = dt.files;
+                    const fileInput = document.getElementById('cand-file');
+                    fileInput.files = files;
+                    handleCandidateFileSelect(files);
+                }, false);
+            }
         }
 
         // ====================================================================
-        // 3. NAVIGATION ROUTER
+        // NAVIGATION ROUTER
         // ====================================================================
         function navigateTo(viewId) {
             const views = document.querySelectorAll('.page-view');
@@ -1998,9 +2023,6 @@
             }, 100);
         }
 
-        // ====================================================================
-        // 4. LANGUAGE SWITCHER LOGIC
-        // ====================================================================
         function switchLanguage() {
             currentLang = currentLang === 'en' ? 'ko' : 'en';
             document.getElementById('lang-toggle-text').innerText = currentLang === 'en' ? 'EN | 한국어' : '한국어 | EN';
@@ -2015,7 +2037,7 @@
         }
 
         // ====================================================================
-        // 5. JOBS BOARD RENDER & FILTERING
+        // JOBS BOARD RENDER & FILTERING
         // ====================================================================
         function renderJobs(jobs) {
             const container = document.getElementById('jobs-container');
@@ -2088,62 +2110,6 @@
             }, 100);
         }
 
-        // ====================================================================
-        // 6. FORM HANDLERS (REQUEST TALENT & CANDIDATE RESUME)
-        // ====================================================================
-        function handleTalentRequestSubmit(e) {
-            e.preventDefault();
-            
-            const company = document.getElementById('req-company').value;
-            const contact = document.getElementById('req-contact').value;
-            const email = document.getElementById('req-email').value;
-            const phone = document.getElementById('req-phone').value;
-            const title = document.getElementById('req-title').value;
-            const industry = document.getElementById('req-industry').value;
-            const urgency = document.getElementById('req-urgency').value;
-            const jd = document.getElementById('req-jd').value;
-            const fileName = selectedEmployerFile ? selectedEmployerFile.name : "None attached (Text provided)";
-
-            const summary = `
-Persona Link Employer Hiring Request Submitted:
-----------------------------------------------
-Company: ${company}
-Contact: ${contact} (${email}, ${phone})
-Role Needed: ${title} (${industry})
-Urgency: ${urgency}
-Attached JD File: ${fileName}
-Job Details / Notes: ${jd}
-----------------------------------------------
-            `;
-
-            showSubmissionConfirmation("Hiring Request Submitted!", "Thank you, " + contact + ". A senior Persona Link recruiter will review your requirements for " + title + " and contact you within 24 business hours.", summary);
-        }
-
-        function handleCandidateResumeSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('cand-name').value;
-            const email = document.getElementById('cand-email').value;
-            const specialty = document.getElementById('cand-specialty').value;
-            const notes = document.getElementById('cand-resume-text').value;
-            const fileName = selectedCandidateFile ? selectedCandidateFile.name : "No file attached";
-
-            closeCandidateModal();
-
-            const subject = encodeURIComponent(`Candidate Application: ${name} - ${specialty}`);
-            const body = encodeURIComponent(`Candidate Submission:\nName: ${name}\nEmail: ${email}\nSpecialty: ${specialty}\nAttached Resume: ${fileName}\n\nNotes / Summary:\n${notes}`);
-            const mailtoUrl = `mailto:annie@personalink.me?subject=${subject}&body=${body}`;
-
-            showSubmissionConfirmation(
-                "Resume Submitted Successfully", 
-                `Thank you, ${name}. Your candidate application has been pre-formatted for annie@personalink.me. Click the button below if your email client didn't open automatically to send your resume file directly.`, 
-                `Candidate Submission Details:\nName: ${name}\nEmail: ${email}\nSpecialty: ${specialty}\nFile: ${fileName}\n\nNotes:\n${notes}`
-            );
-
-            setTimeout(() => {
-                window.location.href = mailtoUrl;
-            }, 800);
-        }
-
         function openCandidateModal() {
             document.getElementById('candidate-modal').classList.remove('hidden');
         }
@@ -2152,27 +2118,8 @@ Job Details / Notes: ${jd}
             document.getElementById('candidate-modal').classList.add('hidden');
         }
 
-        function showSubmissionConfirmation(title, message, payload) {
-            const modal = document.createElement('div');
-            modal.className = "fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4";
-            modal.innerHTML = `
-                <div class="bg-white max-w-lg w-full rounded-2xl p-6 shadow-2xl border border-slate-200 text-center">
-                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xl mx-auto mb-4">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-navy mb-2">${title}</h3>
-                    <p class="text-xs text-brand-muted leading-relaxed mb-4">${message}</p>
-                    ${payload ? `<textarea readonly class="w-full h-28 p-2 rounded bg-slate-100 border text-[11px] font-mono text-slate-700 mb-4">${payload}</textarea>` : ''}
-                    <button onclick="this.closest('.fixed').remove()" class="w-full bg-brand-navy text-white py-3 rounded-xl font-bold text-xs">
-                        Done
-                    </button>
-                </div>
-            `;
-            document.body.appendChild(modal);
-        }
-
         // ====================================================================
-        // 7. DEVELOPER & CLOUDFLARE DEPLOYMENT CODE PORTAL
+        // DEVELOPER & CLOUDFLARE DEPLOYMENT CODE PORTAL
         // ====================================================================
         const DEV_FILES = {
             headers: `/*
@@ -2184,12 +2131,12 @@ Job Details / Notes: ${jd}
   Cache-Control: public, max-age=3600
 `,
             redirects: `# Cloudflare Pages Redirects
-/request-talent   /#request-talent 301
-/employers        /#employers 301
-/semiconductor    /#semiconductor 301
-/bilingual        /#bilingual 301
-/jobs             /#jobs 301
-/*                /index.html 200
+/request-talent    /#request-talent 301
+/employers         /#employers 301
+/semiconductor     /#semiconductor 301
+/bilingual         /#bilingual 301
+/jobs              /#jobs 301
+/*                 /index.html 200
 `,
             robots: `User-agent: *
 Allow: /
@@ -2222,17 +2169,15 @@ Sitemap: https://personalink.me/sitemap.xml
 PERSONA LINK (personalink.me) - DEPLOYMENT & GOOGLE WORKSPACE GUIDE
 ====================================================================
 
-1. CLOUDFLARE PAGES DEPLOYMENT
+1. CLOUDFLARE PAGES / VERCEL DEPLOYMENT
 --------------------------------------------------------------------
-- Simply connect your GitHub repository or drag-and-drop the public build folder into Cloudflare Pages Dashboard.
-- Set Build Output Directory: / (Root)
+- Connect your GitHub repository to Cloudflare Pages or Vercel.
+- Build Output Directory: / (Root)
 - No Node.js build process required (Vanilla HTML5/JS/Tailwind CDN).
 
 2. GOOGLE WORKSPACE DNS PROTECTION (CRITICAL MANDATE)
 --------------------------------------------------------------------
-DO NOT DELETE OR ALTER EXISTING GOOGLE WORKSPACE MX RECORDS IN CLOUDFLARE!
-When setting up DNS records for personalink.me:
-
+DO NOT DELETE OR ALTER EXISTING GOOGLE WORKSPACE MX RECORDS!
 Keep Intact:
 - MX records: ASPMX.L.GOOGLE.COM, ALT1.ASPMX.L.GOOGLE.COM, etc.
 - TXT (SPF): "v=spf1 include:_spf.google.com ~all"
@@ -2252,13 +2197,9 @@ ITEMS REQUIRING OWNER CONFIRMATION (BUSINESS COMPLIANCE)
    - Confirmed active target inbox: annie@personalink.me
 
 2. Client Logos & Placement Claims
-   - Per business rules, specific client company names are anonymized as:
+   - Anonymized as:
      * "Global Semiconductor Equipment Manufacturer"
      * "Global EV Battery Manufacturer"
-   - Do NOT publish exact confidential client names until written approval is secured.
-
-3. SLA Claims Excluded per Guidelines
-   - Guarantees such as "Candidates within 48 hours" or "Number one in Georgia" have been intentionally omitted to maintain professional recruiter credibility.
 `
         };
 
@@ -2302,7 +2243,7 @@ ITEMS REQUIRING OWNER CONFIRMATION (BUSINESS COMPLIANCE)
         }
 
         // ====================================================================
-        // 8. INITIALIZATION ON WINDOW LOAD
+        // INITIALIZATION ON WINDOW LOAD
         // ====================================================================
         window.onload = function() {
             setupDragAndDrop();
