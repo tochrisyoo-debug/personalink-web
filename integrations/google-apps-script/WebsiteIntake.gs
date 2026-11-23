@@ -80,10 +80,10 @@ function plDateOnly_() { return Utilities.formatDate(new Date(), 'America/New_Yo
 function plParseFields_(body) {
   const keys = [
     'Candidate_Name','Candidate_Email','Candidate_Phone','Phone_Number',
-    'Candidate_Location','Candidate_Specialty','Candidate_Notes','Applied_Position_ID',
+    'Candidate_Location','Candidate_Specialty','Candidate_Notes','Applied_Position_ID','Candidate_Data_Consent',
     'Company_Name','Contact_Name','Business_Email','Job_Title_Needed',
     'Industry_Category','Number_of_Openings','Job_Location','Target_Salary_Range',
-    'Hiring_Urgency','Bilingual_Requirement','Work_Authorization',
+    'Hiring_Urgency','Bilingual_Requirement','Work_Authorization','Employer_Data_Consent',
     'Job_Details_/_Notes','Attached_Job_Description'
   ];
   const lines = plText_(body).split(/\r?\n/).map(function(x){ return x.trim(); }).filter(Boolean);
@@ -194,6 +194,7 @@ function plExistingCandidate_(sheet,name,email,phone) {
 
 function plAddCandidate_(sheet,fields,intakeRow,attachments) {
   const name=fields.Candidate_Name, email=fields.Candidate_Email;
+  if (fields.Candidate_Data_Consent !== 'Yes') return {kind:'review',reason:'Applicant privacy consent not confirmed'};
   const phone=fields.Candidate_Phone || fields.Phone_Number || '';
   if(!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return {kind:'review',reason:'Name or valid email missing'};
@@ -259,6 +260,7 @@ function plCreateAts_(sheet,fields,candidateId) {
 
 function plCreateOrder_(sheet,fields,msg,attachments) {
   const company=plText_(fields.Company_Name),title=plText_(fields.Job_Title_Needed);
+  if (fields.Employer_Data_Consent !== 'Yes') return {kind:'review',reason:'Employer submission authorization not confirmed'};
   const email=plEmail_(fields.Business_Email);
   if(!company||!title||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return {kind:'review',reason:'Employer company, role or valid contact email missing'};
