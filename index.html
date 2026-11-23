@@ -1277,9 +1277,9 @@
                 </div>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                     <span class="inline-block px-3 py-1 rounded bg-brand-orange/20 text-brand-orange border border-brand-orange/30 text-xs font-bold uppercase tracking-widest mb-3">CAREER OPPORTUNITIES</span>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Current Open Positions</h1>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Career Opportunities & Talent Network</h1>
                     <p class="text-base sm:text-lg text-slate-300 mt-4 max-w-2xl mx-auto font-normal">
-                        Explore active professional, technical, and executive roles across the United States.
+                        Explore confidential recruiting opportunities and register for future specialized roles. Talent-network listings are not confirmed current vacancies.
                     </p>
                 </div>
             </div>
@@ -1669,8 +1669,32 @@
     <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
         
-        // 1. APPROVED PUBLIC JOBS; legacy sample entries archived inactive
+        // 1. CONFIDENTIAL LIVE REQUISITIONS AND PAST SPECIALTIES FOR TALENT PIPELINE
         const JOBS_DATA = [
+            {
+                "id": "PL-JOB-2026-HSE01",
+                "title": "Safety / HSE Manager (Industrial Facilities)",
+                "location": "Greater Savannah, Georgia Area (On-site)",
+                "category": "Engineering & Manufacturing",
+                "industry": "Engineering & Manufacturing",
+                "salary": "$75,000 - $90,000 per year",
+                "active": true,
+                "posted": "2026-11-23",
+                "summary": "Confidential full-time HSE leadership role supporting facility health, safety and environmental programs, risk assessments, plant safety inspections, incident investigations, emergency readiness, subcontractor safety and training. Includes supervisory responsibilities. Opening availability is subject to client confirmation.",
+                "requirements": "Bachelor's degree in Safety, Environmental Science, Industrial Engineering or a related field and at least 7 years of HSE experience, preferably manufacturing or maintenance-intensive operations. Familiarity with OSHA, EPA, NFPA and ISO standards; OSHA 30, CHST or ASP preferred. English/Korean or English/Spanish bilingual skills preferred. May involve emergency on-call support."
+            },
+            {
+                "id": "PL-TALENT-2026-HSE01",
+                "title": "Facility Safety Engineer / EHS Specialist",
+                "location": "Georgia / Southeast U.S. (varies by opportunity)",
+                "category": "Engineering & Manufacturing",
+                "industry": "Engineering & Manufacturing",
+                "salary": "Future opportunities: compensation varies",
+                "active": false,
+                "posted": "2026-11-23",
+                "summary": "Future-opportunities talent network for industrial facility and construction safety engineering professionals. Submit your resume for matching to relevant positions as they become available; this listing does not represent a currently confirmed vacancy.",
+                "requirements": "Experience with industrial hazard assessment, OSHA compliance, plant or construction safety, incident prevention, contractor safety oversight and workplace inspections. Related education, certifications and bilingual skills can be helpful depending on future roles."
+            },
             {
                 "id": "PL-JOB-2026-ME01",
                 "title": "Mechanical Engineer (Field / Facilities)",
@@ -2069,12 +2093,12 @@
             const container = document.getElementById('jobs-container');
             if (!container) return;
 
-            const visibleJobs = jobs.filter(job => job.active !== false);
+            const visibleJobs = jobs.slice().sort((a, b) => Number(b.active === true) - Number(a.active === true));
             if (visibleJobs.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-2 text-center py-12 bg-white rounded-2xl border border-slate-200">
                         <i class="fa-solid fa-briefcase text-3xl text-slate-300 mb-2"></i>
-                        <p class="text-sm font-bold text-brand-navy">No open positions match your selected filter criteria.</p>
+                        <p class="text-sm font-bold text-brand-navy">No job or talent-network listings match your filters.</p>
                         <p class="text-xs text-brand-muted mt-1">Try resetting filters or submit a general resume application below.</p>
                     </div>
                 `;
@@ -2086,21 +2110,22 @@
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <span class="px-2.5 py-1 rounded bg-slate-100 text-brand-navy text-[11px] font-bold uppercase tracking-wider">${job.category}</span>
-                            <span class="text-[11px] text-brand-muted"><i class="fa-solid fa-clock mr-1"></i> Posted ${job.posted}</span>
+                            <span class="text-[11px] font-bold px-2 py-1 rounded ${job.active ? 'bg-orange-100 text-orange-900' : 'bg-slate-100 text-slate-600'}">${job.active ? 'Recruiting · Subject to Availability' : 'Future Opportunities · Talent Network'}</span>
                         </div>
                         <h3 class="text-lg font-bold text-brand-navy mb-2">${job.title}</h3>
                         <p class="text-xs font-semibold text-brand-orange mb-3">
                             <i class="fa-solid fa-location-dot mr-1"></i> ${job.location} &nbsp;|&nbsp; 
-                            <i class="fa-solid fa-dollar-sign mr-0.5"></i> ${job.salary}
+                            ${job.active ? `<i class="fa-solid fa-dollar-sign mr-0.5"></i> ${job.salary}` : 'Talent-network registration'}
                         </p>
                         <p class="text-xs text-brand-muted leading-relaxed mb-4">${job.summary}</p>
                         <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-[11px] text-brand-slate mb-4">
-                            <strong>Requirements:</strong> ${job.requirements}
+                            <strong>${job.active ? "Qualifications:" : "Relevant Background:"}</strong> ${job.requirements}
                         </div>
                     </div>
+                    ${!job.active ? `<p class="text-[11px] text-slate-500 mb-3">Talent-network listing only. This is not a currently confirmed vacancy.</p>` : ""}
                     <div class="pt-2 flex gap-2">
                         <button onclick="openApplyForJob('${job.id}', '${job.title}')" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-2.5 rounded-xl font-bold text-xs transition-colors text-center">
-                            Apply for this Position
+                            ${job.active ? "Apply / Express Interest" : "Join Talent Network"}
                         </button>
                     </div>
                 </div>
