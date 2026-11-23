@@ -1471,6 +1471,10 @@
                 <p>We collect information provided directly through forms including employer hiring details, job title needs, candidate resumes, contact details, and work authorization preferences.</p>
                 <h3 class="text-sm font-bold text-brand-navy">Use of Information</h3>
                 <p>Information collected is strictly used for evaluating candidate placement fit and conducting recruitment and executive search engagements. We do not sell or monetize candidate or employer data.</p>
+                <h3 class="text-sm font-bold text-brand-navy">Form Processing and Storage</h3>
+                <p>Submitted forms and attachments are transmitted using FormSubmit to our business email account. Authorized recruiting staff may process the information through Google Workspace, private Drive files, and internal recruiting CRM systems. Do not include Social Security numbers, passport numbers, or other unnecessary sensitive identifiers with an initial application.</p>
+                <h3 class="text-sm font-bold text-brand-navy">Candidate Representation and Your Choices</h3>
+                <p>Applying or joining our talent network does not authorize us to submit your resume to any particular employer. We will explain the specific employer and opportunity and seek separate informed permission before submitting your resume. For access, corrections, withdrawal of interest or a privacy inquiry, contact <a class="text-brand-orange underline" href="mailto:annie@personalink.me">annie@personalink.me</a>.</p>
             </div>
         </section>
 
@@ -1492,7 +1496,7 @@
 
     <!-- CANDIDATE RESUME MODAL (WITH ENHANCED DRAG-AND-DROP UPLOAD ZONE) -->
     <div id="candidate-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white max-w-lg w-full rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative">
+        <div class="bg-white max-w-lg w-full max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl border border-slate-200 relative">
             <div class="bg-brand-navy text-white p-6 flex justify-between items-center">
                 <h3 class="text-lg font-bold">Submit Candidate Resume</h3>
                 <button onclick="closeCandidateModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
@@ -1512,6 +1516,7 @@
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Email Address *</label>
                     <input type="email" id="cand-email" name="Candidate_Email" required class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange">
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                         <label for="cand-phone" class="block text-xs font-bold text-brand-navy mb-1">Mobile Phone (Optional)</label>
@@ -1521,7 +1526,6 @@
                         <label for="cand-location" class="block text-xs font-bold text-brand-navy mb-1">Current City / State (Optional)</label>
                         <input type="text" id="cand-location" name="Candidate_Location" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs outline-none focus:border-brand-orange" placeholder="Atlanta, GA">
                     </div>
-                </div>
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-brand-navy mb-1">Primary Specialty / Industry</label>
@@ -1574,7 +1578,7 @@
                 </div>
                 <label class="flex items-start gap-2 text-[11px] text-brand-muted leading-relaxed">
                     <input type="checkbox" name="Candidate_Data_Consent" value="Yes" required class="mt-0.5 accent-orange-600">
-                    <span>I agree that Persona Link may privately store my resume and contact details to review this application and identify relevant opportunities. My resume will not be submitted to an employer without separate informed authorization. <a href="#privacy" target="_blank" class="text-brand-orange underline">Privacy Policy</a>.</span>
+                    <span>I agree that Persona Link may privately store my resume and contact details to review this application and identify relevant opportunities. My resume will not be submitted to an employer without separate informed authorization. <a href="https://personalink.me/#privacy" target="_blank" rel="noopener noreferrer" class="text-brand-orange underline">Privacy Policy</a>.</span>
                 </label>
                 <button type="submit" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-3 rounded-xl font-bold text-xs shadow transition-all flex items-center justify-center gap-2">
                     <i class="fa-solid fa-paper-plane"></i>
