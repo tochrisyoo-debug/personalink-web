@@ -89,7 +89,7 @@ function plParseFields_(body) {
     'Company_Name','Contact_Name','Business_Email','Job_Title_Needed',
     'Industry_Category','Number_of_Openings','Job_Location','Target_Salary_Range',
     'Hiring_Urgency','Bilingual_Requirement','Work_Authorization','Employer_Data_Consent',
-    'Job_Details_/_Notes','Attached_Job_Description'
+    'Job_Details_Notes','Job_Details_/_Notes','Attached_Job_Description'
   ];
   const lines = plText_(body).split(/\r?\n/).map(function(x){ return x.trim(); }).filter(Boolean);
   const fields = {};
