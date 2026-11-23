@@ -1498,6 +1498,7 @@
                 <input type="text" name="_honey" style="display:none">
                 <input type="hidden" name="_captcha" value="true">
                 <input type="hidden" name="_subject" value="[Persona Link] New Candidate Resume Application">
+                <input type="hidden" id="candidate-position-id" name="Applied_Position_ID" value="">
                 <input type="hidden" name="_next" value="https://personalink.me/#jobs">
 
                 <div>
@@ -1668,8 +1669,33 @@
     <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
         
-        // 1. SAMPLE STRUCTURED JOBS DATA
+        // 1. APPROVED PUBLIC JOBS; legacy sample entries archived inactive
         const JOBS_DATA = [
+            {
+                "id": "PL-JOB-2026-ME01",
+                "title": "Mechanical Engineer (Field / Facilities)",
+                "location": "Ellabell / Savannah, GA (On-site)",
+                "category": "Engineering & Manufacturing",
+                "industry": "Engineering & Manufacturing",
+                "salary": "$80,000 - $150,000 per year (experience dependent)",
+                "active": true,
+                "posted": "2026-11-23",
+                "summary": "Full-time on-site opportunity with a confidential global Korean-headquartered company. Support industrial facility reliability, preventive maintenance, root-cause analysis, equipment installation and commissioning. Work with pumps, motors, bearings, gearboxes, HVAC and plant utility systems.",
+                "requirements": "Bachelor's degree in Mechanical Engineering or a related field requested; approximately 5-10 years of industrial, manufacturing or facilities maintenance experience. Practical knowledge of pumps, compressors, hydraulics/pneumatics, technical drawings or P&IDs, troubleshooting and OSHA/LOTO safety practices. Ability to work on site near Savannah, GA. Final qualifications are subject to employer review."
+            },
+            {
+                "id": "PL-JOB-2026-EE01",
+                "title": "Electrical Engineer (Field / Power Distribution)",
+                "location": "Ellabell / Savannah, GA (On-site)",
+                "category": "Engineering & Manufacturing",
+                "industry": "Engineering & Manufacturing",
+                "salary": "$80,000 - $150,000 per year (experience dependent)",
+                "active": true,
+                "posted": "2026-11-23",
+                "summary": "Full-time on-site opportunity with a confidential global Korean-headquartered company. Support industrial facility electrical maintenance, power distribution, switchgear, transformers, backup power systems and troubleshooting, including safe coordination with vendors and field teams.",
+                "requirements": "Bachelor's degree in Electrical Engineering or a related field requested; industrial/facility electrical maintenance background (approximately 2-5 years preferred). Experience with ACB/VCB breakers, protective relays, transformers, electrical schematics and NEC/OSHA practices is important. Relevant state electrical licensing is a plus. Work authorization and any immigration sponsorship needs will be reviewed individually; sponsorship is not guaranteed."
+            },
+
             {
                 id: "JOB-101",
                 title: "Semiconductor Field Service Engineer (FSE)",
@@ -1677,7 +1703,7 @@
                 category: "Semiconductor",
                 industry: "Semiconductor",
                 salary: "$95,000 - $125,000 + OT & Bonus",
-                active: true,
+                active: false,
                 posted: "2026-08-10",
                 summary: "Responsible for tool installation, chamber startup, preventative maintenance, and customer site troubleshooting for advanced etch and CVD equipment.",
                 requirements: "3+ years hands-on semiconductor fab equipment experience. Willingness to travel to fab sites as required."
@@ -1689,7 +1715,7 @@
                 category: "Bilingual",
                 industry: "Automotive & EV Battery",
                 salary: "$110,000 - $140,000",
-                active: true,
+                active: false,
                 posted: "2026-08-12",
                 summary: "Leading HR strategy, workforce recruitment, employee relations, and HQ reporting for a modern automotive component manufacturing facility.",
                 requirements: "Fluent Korean and English written & spoken communication. 5+ years HR experience in U.S. manufacturing environment."
@@ -1701,7 +1727,7 @@
                 category: "Engineering",
                 industry: "Automotive & EV Battery",
                 salary: "$100,000 - $130,000",
-                active: true,
+                active: false,
                 posted: "2026-08-14",
                 summary: "Optimizing lithium-ion cell slurry, coating, and electrolyte filling production lines to improve manufacturing yield.",
                 requirements: "Degree in Chemical or Materials Engineering. 2+ years lithium battery or high-tech manufacturing background."
@@ -1713,7 +1739,7 @@
                 category: "IT & Tech",
                 industry: "IT & Tech",
                 salary: "$140,000 - $175,000",
-                active: true,
+                active: false,
                 posted: "2026-08-15",
                 summary: "Designing enterprise AWS/Azure cloud security frameworks, zero-trust protocols, and industrial MES network integrations.",
                 requirements: "CISSP or AWS Certified Security Specialist. Experience securing enterprise hybrid networks."
@@ -1725,7 +1751,7 @@
                 category: "Engineering",
                 industry: "Engineering & Manufacturing",
                 salary: "$85,000 - $110,000",
-                active: true,
+                active: false,
                 posted: "2026-08-16",
                 summary: "Directing high-speed automated packaging line maintenance, Allen-Bradley PLC troubleshooting, and robotics repair teams.",
                 requirements: "5+ years industrial automation maintenance leadership."
@@ -2043,7 +2069,8 @@
             const container = document.getElementById('jobs-container');
             if (!container) return;
 
-            if (jobs.length === 0) {
+            const visibleJobs = jobs.filter(job => job.active !== false);
+            if (visibleJobs.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-2 text-center py-12 bg-white rounded-2xl border border-slate-200">
                         <i class="fa-solid fa-briefcase text-3xl text-slate-300 mb-2"></i>
@@ -2054,7 +2081,7 @@
                 return;
             }
 
-            container.innerHTML = jobs.map(job => `
+            container.innerHTML = visibleJobs.map(job => `
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-3">
@@ -2072,7 +2099,7 @@
                         </div>
                     </div>
                     <div class="pt-2 flex gap-2">
-                        <button onclick="openApplyForJob('${job.title}')" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-2.5 rounded-xl font-bold text-xs transition-colors text-center">
+                        <button onclick="openApplyForJob('${job.id}', '${job.title}')" class="w-full bg-brand-orange hover:bg-brand-orange-hover text-white py-2.5 rounded-xl font-bold text-xs transition-colors text-center">
                             Apply for this Position
                         </button>
                     </div>
@@ -2102,16 +2129,18 @@
             renderJobs(JOBS_DATA);
         }
 
-        function openApplyForJob(jobTitle) {
+        function openApplyForJob(jobId, jobTitle) {
             openCandidateModal();
-            setTimeout(() => {
-                const text = document.getElementById('cand-resume-text');
-                if (text) text.value = `Applying specifically for position: ${jobTitle}\n\n`;
-            }, 100);
+            const positionField = document.getElementById('candidate-position-id');
+            if (positionField) positionField.value = jobId;
+            const notes = document.getElementById('cand-resume-text');
+            if (notes) notes.value = `Applying specifically for position: ${jobTitle} (Job ID: ${jobId})\n\n`;
         }
 
         function openCandidateModal() {
             document.getElementById('candidate-modal').classList.remove('hidden');
+            const positionField = document.getElementById('candidate-position-id');
+            if (positionField) positionField.value = '';
         }
 
         function closeCandidateModal() {
