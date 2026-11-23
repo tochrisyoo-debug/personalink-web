@@ -27,11 +27,16 @@ const PL_INTAKE = Object.freeze({
   maxAttachmentBytes: 15 * 1024 * 1024
 });
 
-const PL_JOB_MAP = {
-  'PL-JOB-2026-ME01': {orderId:'HEA-MFE', title:'Mechanical Field Engineer', discipline:'Mechanical'},
-  'PL-JOB-2026-EE01': {orderId:'HEA-EFE', title:'Electrical Field Engineer', discipline:'Electrical'},
-  'PL-JOB-2026-HSE01': {orderId:'HEA-HSE', title:'Safety / HSE Manager', discipline:'Safety'}
-};
+// Map public job IDs to internal CRM positions using PRIVATE Script Properties only.
+// Never publish customer or order identifiers in the public GitHub repository.
+function plJobMap_() {
+  const props=PropertiesService.getScriptProperties();
+  return {
+    'PL-JOB-2026-ME01': {orderId:props.getProperty('ORDER_ID_MECH')||'',title:'Mechanical Field Engineer',discipline:'Mechanical'},
+    'PL-JOB-2026-EE01': {orderId:props.getProperty('ORDER_ID_ELEC')||'',title:'Electrical Field Engineer',discipline:'Electrical'},
+    'PL-JOB-2026-HSE01': {orderId:props.getProperty('ORDER_ID_SAFETY')||'',title:'Safety / HSE Manager',discipline:'Safety'}
+  };
+}
 
 function plSheets_() {
   const id = PropertiesService.getScriptProperties().getProperty('CRM_SPREADSHEET_ID');
@@ -208,7 +213,7 @@ function plAddCandidate_(sheet,fields,intakeRow,attachments) {
   plEnsureRoom_(sheet,row);
   const id='PL-'+String(found.maxId+1).padStart(5,'0');
   const jobId=plText_(fields.Applied_Position_ID);
-  const job=PL_JOB_MAP[jobId];
+  const job=plJobMap_()[jobId];
   const values=Array(37).fill('');
   values[0]=id;
   values[1]='Persona Link website form';
@@ -232,8 +237,8 @@ function plAddCandidate_(sheet,fields,intakeRow,attachments) {
 
 function plCreateAts_(sheet,fields,candidateId) {
   const webId=plText_(fields.Applied_Position_ID);
-  const job=PL_JOB_MAP[webId];
-  if(!job) return {key:'',note:'Talent-network registration: no confirmed internal job/order'};
+  const job=plJobMap_()[webId];
+  if(!job || !job.orderId) return {key:'',note:'Talent-network listing or missing private internal position ID: ATS entry deferred for review'};
   const last=sheet.getLastRow();
   if(last>3) {
     const existing=sheet.getRange(4,3,last-3,3).getDisplayValues(); // C position, D title, E candidate ID
