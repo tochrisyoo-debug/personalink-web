@@ -245,8 +245,11 @@ function plCreateAts_(sheet,fields,candidateId) {
     if(existing.some(function(r){return r[0]===job.orderId&&r[2]===candidateId;}))
       return {key:job.orderId+'-'+candidateId,note:'Existing ATS application retained, no duplicate'};
   }
-  const row=last+1;plEnsureRoom_(sheet,row);
-  const vals=Array(20).fill('');
+  const ids=last>3 ? sheet.getRange(4,1,last-3,1).getDisplayValues() : [];
+  let row=4;
+  ids.forEach(function(value,i){ if(value[0]) row=5+i; });
+  plEnsureRoom_(sheet,row);
+  const vals=Array(14).fill('');
   vals[0]=job.orderId+'-'+candidateId;
   vals[2]=job.orderId;
   vals[3]=job.title;
@@ -259,7 +262,7 @@ function plCreateAts_(sheet,fields,candidateId) {
   vals[11]='미획득';
   vals[12]='Website application; position '+webId;
   vals[13]='Applicant self-submitted on website. Do not disclose internal client name or submit resume to employer without informed consent and recruiter approval.';
-  sheet.getRange(row,1,1,20).setValues([vals.map(plCell_)]);
+  sheet.getRange(row,1,1,14).setValues([vals.map(plCell_)]);
   return {key:vals[0],note:'ATS review stage created'};
 }
 
@@ -269,7 +272,7 @@ function plCreateOrder_(sheet,fields,msg,attachments) {
   const email=plEmail_(fields.Business_Email);
   if(!company||!title||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return {kind:'review',reason:'Employer company, role or valid contact email missing'};
-  const sourceKey='WEB-'+plDateOnly_().replace(/-/g,'')+'-'+msg.getId().slice(-8);
+  const sourceKey='WEB-'+msg.getId();
   const existingIds=sheet.getLastRow()>1 ? sheet.getRange(2,1,sheet.getLastRow()-1,1).getDisplayValues().map(function(x){return x[0];}):[];
   if(existingIds.indexOf(sourceKey)!==-1) return {kind:'matched',id:sourceKey,reason:'Same Gmail submission already in orders'};
   const row=sheet.getLastRow()+1;plEnsureRoom_(sheet,row);
@@ -330,7 +333,8 @@ function syncWebsiteIntake() {
         SpreadsheetApp.flush();
       }
       try {
-        const attachment=plSaveAttachments_(msg);
+        const authorized = kind==='candidate' ? form.Candidate_Data_Consent==='Yes' : form.Employer_Data_Consent==='Yes';
+        const attachment=authorized ? plSaveAttachments_(msg) : {urls:[],warnings:['Consent or authorization requires review']};
         const urls=attachment.urls;
         let registration;
         let ats='';
